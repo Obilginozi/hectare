@@ -2,7 +2,9 @@ import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { Inter } from "next/font/google";
 import { BottomBar } from "@/components/BottomBar";
+import { LocaleProvider, SkipLink } from "@/components/Locale";
 import { Navigation } from "@/components/Navigation";
+import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { company, description } from "@/lib/content";
 import { withBase } from "@/lib/paths";
 import "./globals.css";
@@ -19,7 +21,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 export const metadata: Metadata = {
   ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
   title: {
-    default: "Hectare AŞ | Agricultural Machinery & Solutions",
+    default: "Hectare AŞ | Tarım Makineleri ve İş Makineleri",
     template: "%s | Hectare AŞ",
   },
   description,
@@ -49,7 +51,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#efe6d4",
+  themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1,
 };
@@ -74,12 +76,13 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
   return (
     <html lang="tr" className={inter.variable}>
       <body>
-        <a className="skip" href="#icerik">
-          İçeriğe geç
-        </a>
-        <Navigation />
-        {children}
-        <BottomBar />
+        <LocaleProvider>
+          <SkipLink />
+          <Navigation />
+          {children}
+          <BottomBar />
+          <WhatsAppFloat />
+        </LocaleProvider>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

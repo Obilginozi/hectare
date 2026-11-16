@@ -1,18 +1,20 @@
 import type { Metadata } from "next";
-import { Privacy } from "@/components/Privacy";
+import { LegalDoc } from "@/components/LegalDoc";
+import { getLegalPage } from "@/lib/legal/pages";
 import { canonicalPath } from "@/lib/paths";
 
+const page = getLegalPage("gizlilik-politikasi")!;
+
 export const metadata: Metadata = {
-  title: "Gizlilik",
-  description:
-    "Hectare tanıtım sitesinde form yoktur. İletişim telefon, e-posta ve WhatsApp üzerinden kurulur.",
-  alternates: { canonical: canonicalPath("/gizlilik") },
+  title: page.title.tr,
+  description: page.intro?.tr ?? page.title.tr,
+  alternates: { canonical: canonicalPath("/yasal/gizlilik-politikasi") },
 };
 
 export default function GizlilikPage() {
   return (
     <main id="icerik" tabIndex={-1}>
-      <Privacy />
+      <LegalDoc page={page} />
     </main>
   );
 }

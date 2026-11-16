@@ -5,3 +5,7 @@ out
 *.log
 next-env.d.ts
 tsconfig.tsbuildinfo
+
+# Local source masters (encoded copies live in public/media)
+/Video*.mp4
+/Tractor.mp4

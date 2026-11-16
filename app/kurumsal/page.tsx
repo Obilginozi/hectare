@@ -5,7 +5,7 @@ import { canonicalPath } from "@/lib/paths";
 export const metadata: Metadata = {
   title: "Kurumsal",
   description:
-    "Hectare AŞ, otuz yıldan uzun süredir tarım makineleri ve iş makineleri sektöründedir. On yıldan uzun süredir uluslararası ticaret yapar.",
+    "Hectare AŞ, otuz yılı aşkın tecrübesiyle tarım makineleri ve iş makinelerinde toptan tedarik çözümleri sunar. 2022’den bu yana LEMKEN ve FIELDKING Türkiye distribütörüdür.",
   alternates: { canonical: canonicalPath("/kurumsal") },
 };
 

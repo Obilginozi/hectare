@@ -1,0 +1,202 @@
+export type Lang = "tr" | "en";
+
+export const messages = {
+  tr: {
+    skip: "İçeriğe geç",
+    menu: "Menü",
+    close: "Kapat",
+    navLabel: "Ana menü",
+    mobileLabel: "Mobil menü",
+    footerLabel: "Alt menü",
+    view: "İncele",
+    quote: "Teklif iste",
+    quoteBody: (name: string, code: string) => `${name} (${code}) için teklif almak istiyorum.`,
+    productCount: (count: number) => `${count} ürün`,
+    scroll: "Kaydır",
+    contactLabel: "İletişim",
+    pagesLabel: "Sayfalar",
+    legalLabel: "Gizlilik Sözleşmeleri",
+    socialLabel: "Sosyal medya",
+    phone: "Telefon",
+    email: "E-posta",
+    address: "Adres",
+    otherCountries: "Diğer ülkeler",
+    productsLink: "Ürünler",
+    viewProducts: "Ürünleri incele",
+    language: "Dil",
+  },
+  en: {
+    skip: "Skip to content",
+    menu: "Menu",
+    close: "Close",
+    navLabel: "Main menu",
+    mobileLabel: "Mobile menu",
+    footerLabel: "Footer menu",
+    view: "View",
+    quote: "Request a quote",
+    quoteBody: (name: string, code: string) => `I would like a quotation for ${name} (${code}).`,
+    productCount: (count: number) => (count === 1 ? "1 product" : `${count} products`),
+    scroll: "Scroll",
+    contactLabel: "Contact",
+    pagesLabel: "Pages",
+    legalLabel: "Privacy & Policies",
+    socialLabel: "Social media",
+    phone: "Phone",
+    email: "Email",
+    address: "Address",
+    otherCountries: "Other countries",
+    productsLink: "Products",
+    viewProducts: "View the products",
+    language: "Language",
+  },
+} as const;
+
+const nav: Record<string, Record<Lang, string>> = {
+  "/kurumsal": { tr: "Kurumsal", en: "Corporate" },
+  "/ticaret": { tr: "İştiraklerimiz", en: "Our Partnerships" },
+  "/urunler": { tr: "Ürünler", en: "Products" },
+  "/akilli-tarim": { tr: "Akıllı Tarım", en: "Smart Farming" },
+  "/markalar": { tr: "Markalar", en: "Brands" },
+  "/iletisim": { tr: "İletişim", en: "Contact" },
+  "/yasal/iptal-ve-iade": {
+    tr: "İptal Ve İade Koşulları",
+    en: "Cancellation and Returns",
+  },
+  "/yasal/mesafeli-satis": {
+    tr: "Mesafeli Satış Sözleşmesi",
+    en: "Distance Sales Agreement",
+  },
+  "/yasal/gizlilik-politikasi": {
+    tr: "Gizlilik Politikası",
+    en: "Privacy Policy",
+  },
+  "/yasal/kisisel-verilerin-korunmasi": {
+    tr: "Kişisel Verilerin Korunması",
+    en: "Personal Data Protection",
+  },
+  "/yasal/uyelik-ve-kullanim": {
+    tr: "Üyelik Ve Kullanım Sözleşmesi",
+    en: "Membership and Terms of Use",
+  },
+  "/yasal/cerez-politikasi": {
+    tr: "Çerez Politikası",
+    en: "Cookie Policy",
+  },
+};
+
+const groups: Record<string, string> = {
+  "Ekim ve bakım": "Seeding and care",
+  "Toprak işleme": "Tillage",
+  "Ot hasadı": "Forage harvesting",
+  "Traktör ekipmanları": "Tractor equipment",
+};
+
+const categories: Record<string, string> = {
+  mib: "Cereal and seed drills",
+  cap: "Hoeing and inter-row cultivation",
+  gub: "Fertiliser spreaders",
+  akt: "Smart farming systems",
+  top: "Disc tillage and cultivators",
+  rot: "Rotavators",
+  tes: "Levelling equipment",
+  bic: "Grass and forage mowers",
+  otk: "Tedders",
+  otr: "Rotary rakes",
+  ytr: "Wheel and tine rakes",
+  bal: "Balers",
+  sar: "Bale wrappers",
+  sil: "Forage harvesters",
+  kaz: "Tractor rear excavators",
+  yuk: "Tractor front loaders",
+};
+
+const countries: Record<string, string> = {
+  Azerbaycan: "Azerbaijan",
+  Bulgaristan: "Bulgaria",
+  Slovenya: "Slovenia",
+  Polonya: "Poland",
+  Rusya: "Russia",
+  Yunanistan: "Greece",
+  İtalya: "Italy",
+  Romanya: "Romania",
+  Filistin: "Palestine",
+  Irak: "Iraq",
+  Gürcistan: "Georgia",
+  Almanya: "Germany",
+  Hindistan: "India",
+  Danimarka: "Denmark",
+  "Sierra Leone": "Sierra Leone",
+  Moritanya: "Mauritania",
+  Çad: "Chad",
+  Belarus: "Belarus",
+  Arnavutluk: "Albania",
+  Kosova: "Kosovo",
+  Fas: "Morocco",
+  Mısır: "Egypt",
+  Kazakistan: "Kazakhstan",
+  Japonya: "Japan",
+};
+
+const titles: Record<string, Record<Lang, string>> = {
+  "/": {
+    tr: "Hectare AŞ | Tarım Makineleri ve İş Makineleri",
+    en: "Hectare AŞ | Agricultural and Construction Machinery",
+  },
+  "/kurumsal": { tr: "Kurumsal | Hectare AŞ", en: "Corporate | Hectare AŞ" },
+  "/ticaret": { tr: "İştiraklerimiz | Hectare AŞ", en: "Our Partnerships | Hectare AŞ" },
+  "/urunler": { tr: "Ürünler | Hectare AŞ", en: "Products | Hectare AŞ" },
+  "/akilli-tarim": { tr: "Akıllı Tarım | Hectare AŞ", en: "Smart Farming | Hectare AŞ" },
+  "/markalar": { tr: "Markalar | Hectare AŞ", en: "Brands | Hectare AŞ" },
+  "/iletisim": { tr: "İletişim | Hectare AŞ", en: "Contact | Hectare AŞ" },
+  "/yasal/iptal-ve-iade": {
+    tr: "İptal Ve İade Koşulları | Hectare AŞ",
+    en: "Cancellation and Returns | Hectare AŞ",
+  },
+  "/yasal/mesafeli-satis": {
+    tr: "Mesafeli Satış Sözleşmesi | Hectare AŞ",
+    en: "Distance Sales Agreement | Hectare AŞ",
+  },
+  "/yasal/gizlilik-politikasi": {
+    tr: "Gizlilik Politikası | Hectare AŞ",
+    en: "Privacy Policy | Hectare AŞ",
+  },
+  "/yasal/kisisel-verilerin-korunmasi": {
+    tr: "Kişisel Verilerin Korunması | Hectare AŞ",
+    en: "Personal Data Protection | Hectare AŞ",
+  },
+  "/yasal/uyelik-ve-kullanim": {
+    tr: "Üyelik Ve Kullanım Sözleşmesi | Hectare AŞ",
+    en: "Membership and Terms of Use | Hectare AŞ",
+  },
+  "/yasal/cerez-politikasi": {
+    tr: "Çerez Politikası | Hectare AŞ",
+    en: "Cookie Policy | Hectare AŞ",
+  },
+};
+
+export function navName(lang: Lang, href: string, fallback: string) {
+  return nav[href]?.[lang] ?? fallback;
+}
+
+export function groupName(lang: Lang, name: string) {
+  return lang === "en" ? (groups[name] ?? name) : name;
+}
+
+export function categoryName(lang: Lang, slug: string, name: string) {
+  return lang === "en" ? (categories[slug] ?? name) : name;
+}
+
+export function countryName(lang: Lang, name: string) {
+  return lang === "en" ? (countries[name] ?? name) : name;
+}
+
+export function pageTitle(lang: Lang, pathname: string) {
+  const path = pathname.replace(/\/$/, "") || "/";
+  if (titles[path]) return titles[path][lang];
+  const category = path.match(/^\/urunler\/([^/]+)$/);
+  if (category) {
+    const name = categories[category[1]];
+    if (name) return lang === "en" ? `${name} | Hectare AŞ` : undefined;
+  }
+  return undefined;
+}

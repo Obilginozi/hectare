@@ -5,7 +5,7 @@ import { canonicalPath } from "@/lib/paths";
 export const metadata: Metadata = {
   title: "Markalar",
   description:
-    "LEMKEN ve FIELDKING Türkiye distribütörlüğü 2022’de başladı. Çalışma, Hectare Foreign Trade’in dış ticaret alanıyla birlikte yürür.",
+    "2022’den bu yana LEMKEN ve FIELDKING markalarının Türkiye distribütörüyüz.",
   alternates: { canonical: canonicalPath("/markalar") },
 };
 

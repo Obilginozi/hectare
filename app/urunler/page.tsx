@@ -5,14 +5,10 @@ import { canonicalPath } from "@/lib/paths";
 export const metadata: Metadata = {
   title: "Ürünler",
   description:
-    "Zirkon 8, Regular Multi Speed ve Regular Single Speed. Toprak hazırlığından yedek parçaya çalışma alanları.",
+    "Hectare AŞ tarım makineleri tedarik eder. Ekim, toprak işleme, ot hasadı ve traktör ekipmanları.",
   alternates: { canonical: canonicalPath("/urunler") },
 };
 
 export default function UrunlerPage() {
-  return (
-    <main id="icerik" tabIndex={-1}>
-      <Products />
-    </main>
-  );
+  return <Products />;
 }

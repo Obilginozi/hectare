@@ -3,9 +3,9 @@ import { Trade } from "@/components/Trade";
 import { canonicalPath } from "@/lib/paths";
 
 export const metadata: Metadata = {
-  title: "Ticaret",
+  title: "İştiraklerimiz",
   description:
-    "Hectare AŞ, on yıldan uzun süredir uluslararası ticaret yapar. Satış ve projelerin yer aldığı ülkeler.",
+    "Hectare AŞ, on yıldan uzun süredir tecrübesi ve kadrosuyla uluslararası satış ve proje yürütür.",
   alternates: { canonical: canonicalPath("/ticaret") },
 };
 

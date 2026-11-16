@@ -1,59 +1,59 @@
+"use client";
+
 import Image from "next/image";
-import { categories, products } from "@/lib/content";
+import Link from "next/link";
+import { PageFilm } from "@/components/PageFilm";
+import { useLocale } from "@/components/Locale";
+import { catalogGroups, categoriesIn } from "@/lib/catalog";
+import { categoryName, groupName } from "@/lib/i18n";
+import { productPhoto } from "@/lib/product-photos";
 import { withBase } from "@/lib/paths";
-import { InquiryLink } from "@/components/InquiryLink";
 
 export function Products() {
+  const { lang, t } = useLocale();
   return (
-    <section className="section page" aria-labelledby="urunler-title">
-      <div className="wrap">
-        <p className="kicker">Ekipman</p>
-        <h1 id="urunler-title">Ürünler</h1>
-        <p className="lede">
-          Toprak hazırlığından hasada, yemlemeden iş makinelerine kadar tarımsal ekipman ve yedek
-          parça tedariki. Aşağıdaki teknik ayrıntılar yayımlanmış ürün bilgilerinden alınmıştır.
-        </p>
-        <div className="product-list">
-          {products.map((product, index) => (
-            <article className="product" id={product.slug} key={product.slug}>
-              <div className="product-media">
-                <Image
-                  src={withBase(product.image)}
-                  alt={product.alt}
-                  fill
-                  priority={index === 0}
-                  sizes="(max-width: 900px) 100vw, 58vw"
-                />
-              </div>
-              <div className="product-copy">
-                <p className="kicker">
-                  {String(index + 1).padStart(2, "0")} / {product.brand}
-                </p>
-                <h3>{product.name}</h3>
-                <p className="product-category">{product.category}</p>
-                <p>{product.summary}</p>
-                <ul className="specs">
-                  {product.specs.map((spec) => (
-                    <li key={spec}>{spec}</li>
-                  ))}
-                </ul>
-                <InquiryLink product={product.name} />
-              </div>
-            </article>
-          ))}
+    <main id="icerik" tabIndex={-1}>
+      <section className="page-hero page-hero--film" aria-labelledby="urunler-title">
+        <PageFilm src="/media/video4.mp4" poster="/media/video4-poster.jpg" />
+        <div className="page-hero-copy wrap">
+          <h1 id="urunler-title">{lang === "en" ? "Products" : "Ürünler"}</h1>
+          <p>
+            {lang === "en"
+              ? "We supply agricultural machinery from seeding to harvest, and from tillage to tractor equipment."
+              : "Ekimden hasada, toprak işlemeden traktör ekipmanına kadar tarım makineleri tedarik ediyoruz."}
+          </p>
         </div>
-        <div className="category-block">
-          <h3>Çalışma alanları</h3>
-          <ol className="categories">
-            {categories.map((category, index) => (
-              <li key={category}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <span>{category}</span>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </div>
-    </section>
+      </section>
+      {catalogGroups.map((group) => (
+        <section className="section" key={group} aria-labelledby={`urun-${group}`}>
+          <div className="wrap">
+              <h2 id={`urun-${group}`} className="block-title">
+                {groupName(lang, group)}
+              </h2>
+            <ul className="tile-grid">
+              {categoriesIn(group).map((category) => {
+                const photo = category.products.map((item) => productPhoto(item.code)).find(Boolean);
+                return (
+                  <li key={category.slug}>
+                    <Link className="tile" href={`/urunler/${category.slug}`}>
+                      {photo ? (
+                        <span className="tile-photo">
+                          <Image src={withBase(photo)} alt="" fill sizes="(max-width: 900px) 100vw, 33vw" />
+                        </span>
+                      ) : (
+                        <span className="tile-mark">{category.code}</span>
+                      )}
+                        <span className="tile-name">{categoryName(lang, category.slug, category.name)}</span>
+                        <span className="tile-meta">{t.productCount(category.products.length)}</span>
+                        <span className="card-more">{t.view}</span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </section>
+      ))}
+    </main>
   );
 }
