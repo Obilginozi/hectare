@@ -1,6 +1,6 @@
-:HL["/hectare/_next/static/chunks/3ipfx-nuwrmp7.css","style"]
+:HL["/hectare/_next/static/chunks/10yaqv_4x-oms.css","style"]
 :HL["/hectare/_next/static/media/ca69b5b5aa5708ca-s.p.34afemwu2f4np.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/hectare/_next/static/media/e0080bc4508d8435-s.p.267r70ty-h_-w.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"kurumsal","h":96,"c":"$Q2"}]]
-0:{"b":"kMB4WKFFQjTxmNkPBJVDR","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"z2lfZquyc1Iptzne2iNQN","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
