@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { company } from "@/lib/content";
 
 const channels = [
@@ -38,9 +37,6 @@ export function Contact() {
             <p>
               Hectare Foreign Trade’in uluslararası satış ve projeleri de aynı kanallardan yürür.
             </p>
-            <Link className="text-link" href="/ticaret">
-              Ticaret coğrafyası
-            </Link>
           </div>
         </div>
       </section>
