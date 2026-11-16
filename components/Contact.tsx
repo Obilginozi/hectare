@@ -37,7 +37,6 @@ export function Contact() {
             </p>
             <p>
               Hectare Foreign Trade’in uluslararası satış ve projeleri de aynı kanallardan yürür.
-              Mesaj sitede saklanmaz.
             </p>
             <Link className="text-link" href="/ticaret">
               Ticaret coğrafyası
@@ -45,19 +44,8 @@ export function Contact() {
           </div>
         </div>
       </section>
-      <section className="section" aria-labelledby="hat-title">
+      <section className="section section--channels" aria-label="İletişim bilgileri">
         <div className="wrap">
-          <div className="band-head">
-            <div>
-              <p className="kicker">Akaretler</p>
-              <h2 id="hat-title" className="home-follow">
-                Doğrudan hat
-              </h2>
-            </div>
-            <Link className="text-link" href="/gizlilik">
-              Gizlilik
-            </Link>
-          </div>
           <ul className="trade-list contact-channels">
             {channels.map((channel) => (
               <li key={channel.label}>

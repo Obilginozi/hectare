@@ -1,6 +1,9 @@
 import { trade } from "@/lib/content";
 
 export function Trade() {
+  const named = trade.filter((item) => item.works.length > 0);
+  const places = trade.filter((item) => item.works.length === 0);
+
   return (
     <section className="section page" aria-labelledby="ticaret-title">
       <div className="wrap">
@@ -11,11 +14,16 @@ export function Trade() {
           bu çalışmaların geçtiği yerlerdir.
         </p>
         <ul className="trade-list">
-          {trade.map((item) => (
+          {named.map((item) => (
             <li key={item.country}>
               <strong>{item.country}</strong>
-              {item.works.length > 0 ? <span>{item.works.join(" · ")}</span> : null}
+              <span>{item.works.join(" · ")}</span>
             </li>
+          ))}
+        </ul>
+        <ul className="country-index" aria-label="Diğer ülkeler">
+          {places.map((item) => (
+            <li key={item.country}>{item.country}</li>
           ))}
         </ul>
       </div>

@@ -197,6 +197,7 @@ a {
   --o2: 0;
   --o3: 0;
   --o4: 0;
+  --hint: 1;
   position: relative;
   height: 450vh;
   background: var(--paper);
@@ -246,6 +247,52 @@ a {
     rgba(18, 20, 18, 0) 72%
   );
   opacity: max(var(--o2), var(--o3), var(--o4));
+}
+
+.scroll-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 1.65rem;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--white);
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  transform: translateX(-50%);
+  opacity: var(--hint);
+}
+
+.scroll-hint span {
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.scroll-hint i {
+  display: block;
+  width: 0.7rem;
+  height: 0.7rem;
+  margin-top: 0.15rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  filter: drop-shadow(0 1px 6px rgba(0, 0, 0, 0.45));
+  animation: scroll-cue 1.7s ease-in-out infinite;
+}
+
+@keyframes scroll-cue {
+  0%,
+  100% {
+    transform: rotate(45deg) translateY(0);
+    opacity: 0.55;
+  }
+
+  50% {
+    transform: rotate(45deg) translateY(6px);
+    opacity: 1;
+  }
 }
 
 .captions {
@@ -342,6 +389,10 @@ a {
   background: var(--paper);
   color: var(--ink);
   scroll-margin-top: var(--nav-offset);
+}
+
+.section--channels {
+  padding-top: clamp(1.25rem, 3vw, 2rem);
 }
 
 .section--forest {
@@ -903,6 +954,12 @@ a {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .scroll-hint i {
+    animation: none;
+    transform: rotate(45deg);
+    opacity: 1;
   }
 
   .film {

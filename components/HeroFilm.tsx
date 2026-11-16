@@ -108,6 +108,8 @@ export function HeroFilm() {
       const progress =
         scrollable <= 0 ? 0 : Math.min(1, Math.max(0, -rect.top / scrollable));
 
+      const hint = progress < 0.03 ? 1 : progress < 0.12 ? 1 - (progress - 0.03) / 0.09 : 0;
+      track.style.setProperty("--hint", hint.toFixed(4));
       track.style.setProperty("--o2", band(progress, 0.25, 0.35, 0.45, 0.55, false).toFixed(4));
       track.style.setProperty("--o3", band(progress, 0.48, 0.58, 0.65, 0.72, false).toFixed(4));
       track.style.setProperty("--o4", band(progress, 0.68, 0.75, 1, 1, true).toFixed(4));
@@ -207,6 +209,10 @@ export function HeroFilm() {
           aria-hidden="true"
         />
         <div className="film-wash" aria-hidden="true" />
+        <div className="scroll-hint" aria-hidden="true">
+          <span>Kaydır</span>
+          <i />
+        </div>
         <div className="captions" aria-hidden="true" lang="tr">
           {chapters.map((chapter) => (
             <div key={chapter.id} className={`caption caption--${chapter.modifier}`}>
