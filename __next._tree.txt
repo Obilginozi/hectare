@@ -2,4 +2,4 @@
 :HL["/hectare/_next/static/media/ca69b5b5aa5708ca-s.p.34afemwu2f4np.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/hectare/_next/static/media/e0080bc4508d8435-s.p.267r70ty-h_-w.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 1:[["children",{"s":"__PAGE__","h":160}]]
-0:{"b":"vu4eUFMz7skYMldqseJCI","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"hgV0w_Oj3HAgm6u3Y6feh","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
