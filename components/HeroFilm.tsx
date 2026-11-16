@@ -61,45 +61,62 @@ export function HeroFilm() {
     const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
     let frame = 0;
     let duration = 0;
-    let target = 0;
-    let assignedAt = 0;
-    let assignedTime = -1;
+    let want = 0;
+    let pending = false;
+    let pendingAt = 0;
+    let primed = false;
+
+    const flush = () => {
+      if (video.readyState < 1) return;
+      if (Math.abs(video.currentTime - want) < 0.04) {
+        pending = false;
+        return;
+      }
+      pending = true;
+      pendingAt = performance.now();
+      try {
+        video.currentTime = want;
+      } catch {
+        pending = false;
+      }
+    };
 
     const seekTo = (time: number) => {
-      target = time;
-      if (video.readyState < 1) return;
-      if (Math.abs(video.currentTime - time) < 0.034) return;
-
-      const now = performance.now();
-      const seekInFlight = video.seeking && now - assignedAt < 100;
-      const sameTarget = Math.abs(assignedTime - time) < 0.15;
-      if (seekInFlight && sameTarget) return;
-
-      assignedAt = now;
-      assignedTime = time;
-      try {
-        video.currentTime = time;
-      } catch {
-        assignedAt = 0;
-      }
+      want = time;
+      if (pending) return;
+      flush();
     };
 
     const onSeeked = () => {
-      video.pause();
-      if (Math.abs(video.currentTime - target) > 0.05) {
-        assignedAt = 0;
-        seekTo(target);
-      }
+      pending = false;
+      if (!video.paused) video.pause();
+      if (Math.abs(video.currentTime - want) > 0.05) flush();
     };
 
     const onEnded = () => {
-      assignedAt = 0;
+      pending = false;
       const park = Math.max(0, (Number.isFinite(video.duration) ? video.duration : 0) - 0.1);
-      video.currentTime = Math.min(target, park);
+      want = Math.min(want, park);
+      flush();
     };
 
-    const onSuspend = () => {
-      assignedAt = 0;
+    const prime = () => {
+      if (primed || motion.matches || !video.src || video.readyState < 1) return;
+      primed = true;
+      const played = video.play();
+      if (!played) {
+        video.pause();
+        return;
+      }
+      played
+        .then(() => {
+          video.pause();
+          pending = false;
+          flush();
+        })
+        .catch(() => {
+          primed = false;
+        });
     };
 
     const update = () => {
@@ -133,6 +150,7 @@ export function HeroFilm() {
     const onReady = () => {
       track.dataset.ready = "true";
       video.pause();
+      prime();
     };
 
     const applyMode = () => {
@@ -150,39 +168,45 @@ export function HeroFilm() {
       }
     };
 
-    const unlock = () => {
-      if (motion.matches || !video.src) return;
-      const pending = video.play();
-      if (pending) pending.then(() => video.pause()).catch(() => undefined);
-    };
+    const watchdog = window.setInterval(() => {
+      if (!pending || performance.now() - pendingAt < 280) return;
+      pending = false;
+      flush();
+    }, 140);
 
     video.muted = true;
+    video.defaultMuted = true;
     video.playsInline = true;
+    video.preload = "auto";
     applyMode();
     if (video.readyState >= 1) onMeta();
+    if (video.readyState >= 2) onReady();
 
     video.addEventListener("loadedmetadata", onMeta);
     video.addEventListener("loadeddata", onReady);
     video.addEventListener("seeked", onSeeked);
     video.addEventListener("ended", onEnded);
-    video.addEventListener("suspend", onSuspend);
     motion.addEventListener("change", applyMode);
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
-    window.addEventListener("pointerdown", unlock, { once: true });
+    window.addEventListener("wheel", prime, { passive: true });
+    window.addEventListener("touchstart", prime, { passive: true });
+    window.addEventListener("keydown", prime);
     update();
 
     return () => {
       cancelAnimationFrame(frame);
+      window.clearInterval(watchdog);
       video.removeEventListener("loadedmetadata", onMeta);
       video.removeEventListener("loadeddata", onReady);
       video.removeEventListener("seeked", onSeeked);
       video.removeEventListener("ended", onEnded);
-      video.removeEventListener("suspend", onSuspend);
       motion.removeEventListener("change", applyMode);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
-      window.removeEventListener("pointerdown", unlock);
+      window.removeEventListener("wheel", prime);
+      window.removeEventListener("touchstart", prime);
+      window.removeEventListener("keydown", prime);
     };
   }, []);
 
@@ -204,8 +228,7 @@ export function HeroFilm() {
           className="film-video"
           muted
           playsInline
-          preload="metadata"
-          poster={POSTER_SRC}
+          preload="auto"
           aria-hidden="true"
         />
         <div className="film-wash" aria-hidden="true" />

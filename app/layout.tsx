@@ -72,7 +72,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="tr" className={inter.variable} data-scroll-behavior="smooth">
+    <html lang="tr" className={inter.variable}>
       <body>
         <a className="skip" href="#icerik">
           İçeriğe geç
