@@ -10,12 +10,10 @@ import { categoryName, countryName, groupName, navName } from "@/lib/i18n";
 import { productPhoto } from "@/lib/product-photos";
 import { withBase } from "@/lib/paths";
 
-const homeGroups = catalogGroups.filter((group) => group !== "Traktör ekipmanları");
+const homeGroups = [...catalogGroups];
 
 function categoriesForHome(group: string) {
-  const categories = categoriesIn(group).filter((category) => category.code !== "AKT");
-  if (group !== "Ot hasadı") return categories;
-  return [...categories].sort((a, b) => b.products.length - a.products.length).slice(0, 3);
+  return categoriesIn(group).filter((category) => category.code !== "AKT");
 }
 
 export function Home() {
@@ -79,53 +77,55 @@ export function Home() {
           </div>
         </section>
 
-        {homeGroups.map((group) => (
-          <section
-            className={
-              group === "Ekim ve bakım"
-                ? "section section-muted"
-                : group === "Toprak işleme"
-                  ? "section section-muted"
-                  : "section"
-            }
-            style={
-              group === "Ekim ve bakım"
-                ? { paddingBottom: "1.5rem" }
-                : group === "Toprak işleme"
-                  ? { paddingTop: "1.5rem" }
-                  : undefined
-            }
-            key={group}
-            aria-labelledby={`grup-${group}`}
-          >
-            <div className="wrap">
-              <div className="section-head">
-                <h2 id={`grup-${group}`}>{groupName(lang, group)}</h2>
-              </div>
-              <ul className="tile-grid">
-                {categoriesForHome(group).map((category) => {
-                  const photo = category.products.map((item) => productPhoto(item.code)).find(Boolean);
-                  return (
-                    <li key={category.slug}>
-                      <Link className="tile" href={`/urunler/${category.slug}`}>
-                        <span className="tile-photo">
-                          {photo ? (
-                            <Image src={withBase(photo)} alt="" fill sizes="(max-width: 900px) 100vw, 33vw" />
-                          ) : null}
-                        </span>
-                        <span className="tile-body">
-                          <span className="tile-name">{categoryName(lang, category.slug, category.name)}</span>
-                          <span className="tile-meta">{t.productCount(category.products.length)}</span>
-                          <span className="tile-more">{t.view}</span>
-                        </span>
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
+        <section className="section section-muted home-catalog" aria-label={t.productsLink}>
+          <div className="wrap">
+            <div className="section-head">
+              <p className="eyebrow">{lang === "en" ? "Catalogue" : "Katalog"}</p>
+              <h2>
+                {lang === "en"
+                  ? "Field equipment, ready to quote."
+                  : "Sahaya hazır ekipman, hızlı teklif."}
+              </h2>
             </div>
-          </section>
-        ))}
+            {homeGroups.map((group) => (
+              <div key={group} className="home-catalog-group" aria-labelledby={`grup-${group}`}>
+                <div className="home-catalog-head">
+                  <h3 id={`grup-${group}`}>{groupName(lang, group)}</h3>
+                  <Link href="/urunler">{t.viewProducts}</Link>
+                </div>
+                <ul className="tile-grid tile-grid-4">
+                  {categoriesForHome(group).map((category) => {
+                    const photo = category.products.map((item) => productPhoto(item.code)).find(Boolean);
+                    return (
+                      <li key={category.slug}>
+                        <Link className="tile tile-compact" href={`/urunler/${category.slug}`}>
+                          <span className="tile-photo">
+                            {photo ? (
+                              <Image
+                                src={withBase(photo)}
+                                alt=""
+                                fill
+                                sizes="(max-width: 900px) 50vw, 25vw"
+                              />
+                            ) : null}
+                            <span className="tile-badge">{category.code}</span>
+                          </span>
+                          <span className="tile-body">
+                            <span className="tile-name">
+                              {categoryName(lang, category.slug, category.name)}
+                            </span>
+                            <span className="tile-meta">{t.productCount(category.products.length)}</span>
+                            <span className="tile-more">{t.view}</span>
+                          </span>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
 
         <section className="band" aria-labelledby="saha-title">
           <PageFilm src="/media/video6.mp4" poster="/media/video6-poster.jpg" className="hero-media" />

@@ -140,7 +140,7 @@ export function Products() {
                       {tr ? "ürün" : "products"}
                     </p>
                   </div>
-                  <ul className="tile-grid">
+                  <ul className="tile-grid tile-grid-4">
                     {categories.map((category) => {
                       const photo = categoryThumb(category);
                       const preview = category.products.slice(0, 3);
