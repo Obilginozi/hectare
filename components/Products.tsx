@@ -11,49 +11,62 @@ import { withBase } from "@/lib/paths";
 
 export function Products() {
   const { lang, t } = useLocale();
+  const tr = lang === "tr";
+
   return (
-    <main id="icerik" tabIndex={-1}>
-      <section className="page-hero page-hero--film" aria-labelledby="urunler-title">
+    <>
+      <section className="page-hero">
         <PageFilm src="/media/video4.mp4" poster="/media/video4-poster.jpg" />
-        <div className="page-hero-copy wrap">
-          <h1 id="urunler-title">{lang === "en" ? "Products" : "Ürünler"}</h1>
-          <p>
-            {lang === "en"
-              ? "We supply agricultural machinery from seeding to harvest, and from tillage to tractor equipment."
-              : "Ekimden hasada, toprak işlemeden traktör ekipmanına kadar tarım makineleri tedarik ediyoruz."}
-          </p>
+        <div className="page-hero-copy">
+          <p className="eyebrow">Hectare</p>
+          <h1>{tr ? "Ürünler" : "Products"}</h1>
         </div>
       </section>
-      {catalogGroups.map((group) => (
-        <section className="section" key={group} aria-labelledby={`urun-${group}`}>
-          <div className="wrap">
-              <h2 id={`urun-${group}`} className="block-title">
-                {groupName(lang, group)}
-              </h2>
-            <ul className="tile-grid">
-              {categoriesIn(group).map((category) => {
-                const photo = category.products.map((item) => productPhoto(item.code)).find(Boolean);
-                return (
-                  <li key={category.slug}>
-                    <Link className="tile" href={`/urunler/${category.slug}`}>
-                      {photo ? (
-                        <span className="tile-photo">
-                          <Image src={withBase(photo)} alt="" fill sizes="(max-width: 900px) 100vw, 33vw" />
-                        </span>
-                      ) : (
-                        <span className="tile-mark">{category.code}</span>
-                      )}
-                        <span className="tile-name">{categoryName(lang, category.slug, category.name)}</span>
-                        <span className="tile-meta">{t.productCount(category.products.length)}</span>
-                        <span className="card-more">{t.view}</span>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+
+      <section className="section">
+        <div className="wrap">
+          <div className="section-head">
+            <p className="lede">
+              {tr
+                ? "Ekimden hasada, toprak işlemeden traktör ekipmanına kadar tarım makineleri tedarik ediyoruz."
+                : "From seeding to harvest, tillage to tractor equipment, we supply agricultural machinery."}
+            </p>
           </div>
-        </section>
-      ))}
-    </main>
+
+          <div className="catalog-groups">
+            {catalogGroups.map((group) => (
+              <div key={group}>
+                <h2 className="block-title" style={{ marginBottom: "1.25rem" }}>
+                  {groupName(lang, group)}
+                </h2>
+                <ul className="tile-grid">
+                  {categoriesIn(group).map((category) => {
+                    const photo = category.products.map((item) => productPhoto(item.code)).find(Boolean);
+                    return (
+                      <li key={category.slug}>
+                        <Link className="tile" href={`/urunler/${category.slug}`}>
+                          <span className="tile-photo">
+                            {photo ? (
+                              <Image src={withBase(photo)} alt="" fill sizes="(max-width: 900px) 100vw, 33vw" />
+                            ) : null}
+                          </span>
+                          <span className="tile-body">
+                            <span className="tile-name">
+                              {categoryName(lang, category.slug, category.name)}
+                            </span>
+                            <span className="tile-meta">{t.productCount(category.products.length)}</span>
+                            <span className="tile-more">{t.view}</span>
+                          </span>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

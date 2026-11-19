@@ -71,7 +71,7 @@ export function LanguageSwitch() {
 export function SkipLink() {
   const { t } = useLocale();
   return (
-    <a className="skip" href="#icerik">
+    <a className="skip-link" href="#icerik">
       {t.skip}
     </a>
   );

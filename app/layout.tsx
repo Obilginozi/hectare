@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { Inter } from "next/font/google";
+import { Manrope, Syne } from "next/font/google";
 import { BottomBar } from "@/components/BottomBar";
 import { LocaleProvider, SkipLink } from "@/components/Locale";
 import { Navigation } from "@/components/Navigation";
@@ -9,11 +9,18 @@ import { company, description } from "@/lib/content";
 import { withBase } from "@/lib/paths";
 import "./globals.css";
 
-const inter = Inter({
+const syne = Syne({
   subsets: ["latin", "latin-ext"],
-  weight: ["300", "400", "500"],
+  weight: ["500", "600", "700", "800"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-syne",
+});
+
+const manrope = Manrope({
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-manrope",
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
@@ -37,21 +44,17 @@ export const metadata: Metadata = {
               url: withBase("/media/unver-hero-poster.jpg"),
               width: 1920,
               height: 1080,
-              alt: "Altın buğday tarlasında çalışan biçerdöver",
+              alt: "Hectare AŞ tarım makineleri",
             },
           ],
         }
       : {}),
   },
-  twitter: {
-    card: "summary_large_image",
-    ...(siteUrl ? { images: [withBase("/media/unver-hero-poster.jpg")] } : {}),
-  },
   robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
+  themeColor: "#0a100e",
   width: "device-width",
   initialScale: 1,
 };
@@ -74,7 +77,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="tr" className={inter.variable}>
+    <html lang="tr" className={`${syne.variable} ${manrope.variable}`}>
       <body>
         <LocaleProvider>
           <SkipLink />

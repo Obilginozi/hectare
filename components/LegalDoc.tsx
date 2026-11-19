@@ -13,7 +13,7 @@ export function LegalDoc({ page }: { page: LegalPage }) {
   const blocks = page.blocks[lang];
 
   return (
-    <section className="section page legal-page" aria-labelledby="legal-title">
+    <section className="section" style={{ paddingTop: "calc(var(--header-h) + 3rem)" }} aria-labelledby="legal-title">
       <div className="wrap legal-layout">
         <article className="legal-doc prose">
           <h1 id="legal-title" className="block-title">

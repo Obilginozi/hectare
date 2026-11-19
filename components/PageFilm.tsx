@@ -4,7 +4,15 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { withBase } from "@/lib/paths";
 
-export function PageFilm({ src, poster }: { src: string; poster: string }) {
+export function PageFilm({
+  src,
+  poster,
+  className = "page-hero-media",
+}: {
+  src: string;
+  poster: string;
+  className?: string;
+}) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -45,17 +53,9 @@ export function PageFilm({ src, poster }: { src: string; poster: string }) {
   }, [src]);
 
   return (
-    <>
+    <div className={className} aria-hidden="true">
       <Image src={withBase(poster)} alt="" fill priority sizes="100vw" />
-      <video
-        ref={videoRef}
-        className="page-film"
-        muted
-        playsInline
-        loop
-        preload="auto"
-        aria-hidden="true"
-      />
-    </>
+      <video ref={videoRef} muted playsInline loop preload="auto" />
+    </div>
   );
 }

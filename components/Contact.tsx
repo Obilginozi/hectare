@@ -15,23 +15,21 @@ export function Contact() {
 
   return (
     <>
-      <section className="page-hero page-hero--film" aria-labelledby="iletisim-title">
+      <section className="page-hero">
         <PageFilm src="/media/video3.mp4" poster="/media/video3-poster.jpg" />
-        <div className="page-hero-copy wrap">
-          <h1 id="iletisim-title">{lang === "en" ? "Contact" : "İletişim"}</h1>
+        <div className="page-hero-copy">
+          <p className="eyebrow">Hectare</p>
+          <h1>{lang === "en" ? "Contact" : "İletişim"}</h1>
         </div>
       </section>
 
-      <section className="section contact-page">
+      <section className="section">
         <div className="wrap contact-layout">
-          <div className="contact-panel">
-            <header className="contact-head">
-              <p className="contact-firm">
-                {company.name}
-                <span>Hectare Foreign Trade</span>
-              </p>
-            </header>
-
+          <div>
+            <p className="contact-firm">
+              {company.name}
+              <span>Hectare Foreign Trade</span>
+            </p>
             <dl className="contact-sheet">
               <div>
                 <dt>{t.address}</dt>
