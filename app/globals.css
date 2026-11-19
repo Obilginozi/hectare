@@ -120,6 +120,7 @@ input {
 .brand-lockup img {
   width: auto;
   height: 1.7rem;
+  filter: brightness(0);
 }
 
 .brand-lockup strong {
@@ -1452,6 +1453,7 @@ input {
 .footer-brand img {
   height: 2rem;
   width: auto;
+  filter: brightness(0);
 }
 
 .footer-brand p {
