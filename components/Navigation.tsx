@@ -92,15 +92,14 @@ export function Navigation() {
                               <span>{categoryName(lang, category.slug, category.name)}</span>
                               <em>{category.code}</em>
                             </Link>
-                            <ul>
+                            <ul className="mega-codes">
                               {category.products.map((product) => (
                                 <li key={product.code}>
                                   <Link
                                     href={`/urunler/${category.slug}`}
                                     onClick={() => setMegaOpen(false)}
                                   >
-                                    <code>{product.code}</code>
-                                    <span>{product.name}</span>
+                                    {product.code}
                                   </Link>
                                 </li>
                               ))}
@@ -182,15 +181,14 @@ export function Navigation() {
                             {categoryName(lang, category.slug, category.name)}
                             <em>{category.code}</em>
                           </Link>
-                          <ul>
+                          <ul className="mobile-codes">
                             {category.products.map((product) => (
                               <li key={product.code}>
                                 <Link
                                   href={`/urunler/${category.slug}`}
                                   onClick={() => setOpen(false)}
                                 >
-                                  <code>{product.code}</code>
-                                  <span>{product.name}</span>
+                                  {product.code}
                                 </Link>
                               </li>
                             ))}
