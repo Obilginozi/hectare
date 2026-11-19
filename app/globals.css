@@ -95,8 +95,7 @@ input {
   z-index: 50;
   height: var(--header-h);
   color: var(--ink);
-  background: rgba(247, 249, 247, 0.94);
-  backdrop-filter: blur(14px);
+  background: var(--white);
   border-bottom: 1px solid var(--line);
 }
 
