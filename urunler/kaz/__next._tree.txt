@@ -1,4 +1,4 @@
-:HL["/hectare/_next/static/chunks/2gd0hf5dl4ur9.css","style"]
+:HL["/hectare/_next/static/chunks/2zt9t5okg4vqi.css","style"]
 :HL["/hectare/_next/static/media/53184f85607312d4-s.p.3z1vcboutudqk.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/hectare/_next/static/media/7c42b85337e0c4bb-s.p.012bmydply3go.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/hectare/_next/static/media/82450a180bcad83c-s.p.0p-wng2nn8o-p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
@@ -6,4 +6,4 @@
 3:[["children",{"s":"__PAGE__","h":160}]]
 2:[["children",{"s":{"n":"kategori","t":"d","k":"kaz","s":[]},"h":65632,"c":"$Q3"}]]
 1:[["children",{"s":"urunler","h":131168,"c":"$Q2"}]]
-0:{"b":"z33Lohy71vjfyGjDhwz6c","t":{"t":{"s":"","h":131152,"c":"$Q1"}}}
+0:{"b":"qHjhySdnlHFXiQTdJIAUw","t":{"t":{"s":"","h":131152,"c":"$Q1"}}}
