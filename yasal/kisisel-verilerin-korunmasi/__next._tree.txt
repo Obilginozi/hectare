@@ -1,9 +1,9 @@
-:HL["/hectare/_next/static/chunks/1f37x9n_e72ut.css","style"]
-:HL["/hectare/_next/static/media/53184f85607312d4-s.p.3z1vcboutudqk.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/hectare/_next/static/media/7c42b85337e0c4bb-s.p.012bmydply3go.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/hectare/_next/static/chunks/3u-y7325qpc79.css","style"]
+:HL["/hectare/_next/static/media/2d1f9e9b7c7e555a-s.p.2sdod33b2ip8w.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/hectare/_next/static/media/679a732b7dc39b4f-s.p.08cs-hrrui5cb.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/hectare/_next/static/media/82450a180bcad83c-s.p.0p-wng2nn8o-p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/hectare/_next/static/media/fbb7028efdf70529-s.p.1_0gbi-gsbqmd.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 3:[["children",{"s":"__PAGE__","h":160}]]
 2:[["children",{"s":{"n":"slug","t":"d","k":"kisisel-verilerin-korunmasi","s":[]},"h":96,"c":"$Q3"}]]
 1:[["children",{"s":"yasal","h":96,"c":"$Q2"}]]
-0:{"b":"0a-qlev7MAr5fFZtD--KO","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"0QnsHPHayezpyAsv1FjYk","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
