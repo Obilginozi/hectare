@@ -73,6 +73,7 @@ export function Navigation() {
                 <div
                   id={megaId}
                   className="mega-panel"
+                  hidden={!megaOpen}
                   role="region"
                   aria-label={navName(lang, "/urunler", "Ürünler")}
                   onMouseEnter={openMega}
