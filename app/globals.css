@@ -565,6 +565,24 @@ input {
   overflow: hidden;
 }
 
+.page-hero-compact {
+  min-height: clamp(11rem, 22vw, 15rem);
+  padding: calc(var(--header-h) + 1.1rem) 0 1.35rem;
+}
+
+.page-hero-compact .eyebrow {
+  margin-bottom: 0.55rem;
+}
+
+.page-hero-compact .page-hero-lede {
+  margin-top: 0.55rem;
+  max-width: 28rem;
+}
+
+.products-browse {
+  padding: 1.25rem 0 clamp(2.5rem, 5vw, 4rem);
+}
+
 .page-hero h1 {
   margin: 0;
   font-family: var(--font-display);
@@ -594,7 +612,9 @@ input {
 }
 
 .products-proof {
-  padding-block: 1.5rem;
+  padding: 0.85rem 0;
+  background: var(--paper-deep);
+  border-block: 1px solid var(--line);
 }
 
 .products-proof-list {
@@ -629,7 +649,16 @@ input {
 
 .products-browse-head {
   display: grid;
-  gap: 1.25rem;
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.products-browse-head .eyebrow {
+  margin-bottom: 0.35rem;
+}
+
+.products-browse-head .lede {
+  margin-top: 0.35rem;
 }
 
 .products-filter {
@@ -726,7 +755,7 @@ input {
 }
 
 .products-path .section-head {
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.25rem;
 }
 
 .products-steps {
@@ -828,7 +857,7 @@ input {
 }
 
 .cat-sales-proof {
-  padding: 1.15rem 0;
+  padding: 0.85rem 0;
   background: var(--paper);
   border-bottom: 1px solid var(--line);
 }
@@ -864,7 +893,8 @@ input {
 }
 
 .cat-sales-list {
-  padding-bottom: 4.5rem;
+  padding-top: clamp(1.25rem, 2.8vw, 1.85rem);
+  padding-bottom: clamp(2.75rem, 5vw, 4rem);
 }
 
 .cat-sales-grid {
@@ -946,47 +976,6 @@ input {
   color: rgba(247, 249, 247, 0.72);
 }
 
-.cat-sales-bar {
-  position: sticky;
-  bottom: 0;
-  z-index: 40;
-  padding: 0.75rem 0;
-  background: rgba(247, 249, 247, 0.96);
-  border-top: 1px solid var(--line);
-}
-
-.cat-sales-bar-inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem 1rem;
-}
-
-.cat-sales-bar p {
-  display: grid;
-  gap: 0.1rem;
-  margin: 0;
-}
-
-.cat-sales-bar strong {
-  color: var(--forest);
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-}
-
-.cat-sales-bar span {
-  color: var(--ink);
-  font-size: 0.92rem;
-  font-weight: 650;
-}
-
-.cat-sales-bar-inner > div {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-}
-
 .home-catalog {
   padding-block: clamp(2.5rem, 5vw, 4rem);
 }
@@ -997,7 +986,7 @@ input {
 
 .home-catalog-head {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
   margin-bottom: 0.85rem;
@@ -1010,6 +999,12 @@ input {
   font-weight: 700;
 }
 
+.home-catalog-tools {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .home-catalog-head a {
   color: var(--forest);
   font-size: 0.72rem;
@@ -1019,8 +1014,69 @@ input {
   text-transform: uppercase;
 }
 
+.home-rail-nav {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.home-rail-btn {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--forest);
+  font-size: 1.15rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.home-rail-btn:hover:not(:disabled) {
+  border-color: var(--forest);
+  background: var(--forest);
+  color: var(--white);
+}
+
+.home-rail-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.home-rail {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.home-rail.is-scrollable {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 2.25rem) / 4);
+  grid-template-columns: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.home-rail.is-scrollable::-webkit-scrollbar {
+  display: none;
+}
+
+.home-rail.is-scrollable > li {
+  scroll-snap-align: start;
+  min-width: 0;
+}
+
+.home-rail .tile {
+  height: 100%;
+}
+
 .section {
-  padding: clamp(3.5rem, 8vw, 6rem) 0;
+  padding: clamp(2.25rem, 5vw, 3.75rem) 0;
 }
 
 .section-dark {
@@ -1032,10 +1088,23 @@ input {
   background: var(--paper-deep);
 }
 
+.page-hero + .section,
+.cat-sales-proof + .section,
+.cat-sales-proof + .cat-sales-list,
+.products-proof + .section,
+.products-proof + .products-browse,
+#icerik > .section:first-child {
+  padding-top: clamp(1.25rem, 2.8vw, 1.85rem);
+}
+
 .section-head {
   display: grid;
-  gap: 0.85rem;
-  margin-bottom: clamp(1.75rem, 4vw, 2.75rem);
+  gap: 0.5rem;
+  margin-bottom: clamp(1.1rem, 2.4vw, 1.65rem);
+}
+
+.section-head .eyebrow {
+  margin-bottom: 0.15rem;
 }
 
 .section-head h2,
@@ -1698,20 +1767,20 @@ input {
 
 .whatsapp-float {
   position: fixed;
-  right: max(1rem, env(safe-area-inset-right));
-  bottom: max(1rem, env(safe-area-inset-bottom));
+  right: max(0.85rem, env(safe-area-inset-right));
+  bottom: max(0.85rem, env(safe-area-inset-bottom));
   z-index: 60;
-  width: 3.4rem;
-  height: 3.4rem;
-  border-radius: 999px;
-  overflow: hidden;
-  box-shadow: 0 0.6rem 1.4rem rgba(10, 16, 14, 0.28);
+  width: 3.75rem;
+  height: 3.75rem;
+  overflow: visible;
+  filter: drop-shadow(0 0.45rem 1rem rgba(10, 16, 14, 0.28));
 }
 
 .whatsapp-float img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  display: block;
 }
 
 .trade-map {
@@ -1893,6 +1962,14 @@ input {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .home-rail:not(.is-scrollable) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-rail.is-scrollable {
+    grid-auto-columns: calc((100% - 0.75rem) / 2);
+  }
+
   .brand-card,
   .smart-product,
   .contact-layout,
@@ -1976,23 +2053,24 @@ input {
   .products-proof-list,
   .products-steps,
   .cat-sales-proof ul,
-  .cat-sales-grid {
+  .cat-sales-grid,
+  .home-rail:not(.is-scrollable) {
     grid-template-columns: 1fr;
   }
 
+  .home-rail.is-scrollable {
+    grid-auto-columns: 85%;
+  }
+
   .products-group-head,
-  .home-catalog-head,
-  .cat-sales-bar-inner {
+  .home-catalog-head {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .cat-sales-bar-inner > div {
+  .home-catalog-tools {
     width: 100%;
-  }
-
-  .cat-sales-bar-inner .btn {
-    flex: 1;
+    justify-content: space-between;
   }
 
   .band-copy {

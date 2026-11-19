@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { PageFilm } from "@/components/PageFilm";
 import { useLocale } from "@/components/Locale";
 import { catalog } from "@/lib/catalog";
 import { company } from "@/lib/content";
@@ -13,8 +14,6 @@ import type { CatalogCategory } from "@/lib/catalog";
 export function CategoryCatalog({ category }: { category: CatalogCategory }) {
   const { lang, t } = useLocale();
   const tr = lang === "tr";
-  const heroPhoto =
-    category.products.map((item) => productPhoto(item.code)).find(Boolean) ?? null;
   const categoryQuote = encodeURIComponent(
     tr
       ? `${category.name} (${category.code}) kategorisinden teklif almak istiyorum.`
@@ -28,31 +27,16 @@ export function CategoryCatalog({ category }: { category: CatalogCategory }) {
 
   return (
     <>
-      <section className="cat-sales-hero">
-        <div className="cat-sales-hero-media" aria-hidden="true">
-          {heroPhoto ? (
-            <Image src={withBase(heroPhoto)} alt="" fill priority sizes="100vw" />
-          ) : null}
-        </div>
-        <div className="wrap cat-sales-hero-copy">
+      <section className="page-hero">
+        <PageFilm src="/media/video4.mp4" poster="/media/video4-poster.jpg" />
+        <div className="page-hero-copy">
           <p className="eyebrow">{groupName(lang, category.group)}</p>
           <h1>{categoryName(lang, category.slug, category.name)}</h1>
-          <p>
+          <p className="page-hero-lede">
             {tr
               ? `${category.products.length} model · ${category.code} ürün kodlarıyla aynı gün teklif.`
               : `${category.products.length} models · same-day quotes with ${category.code} product codes.`}
           </p>
-          <div className="hero-actions">
-            <a className="btn btn-primary" href={mailtoCategory}>
-              {t.quote}
-            </a>
-            <a className="btn btn-ghost" href={waCategory} target="_blank" rel="noreferrer">
-              WhatsApp
-            </a>
-            <a className="btn btn-ghost" href={`tel:${company.phoneTel}`}>
-              {company.phoneDisplay}
-            </a>
-          </div>
         </div>
       </section>
 
@@ -79,7 +63,7 @@ export function CategoryCatalog({ category }: { category: CatalogCategory }) {
         </div>
       </section>
 
-      <section className="section cat-sales-list" id="modeller">
+      <section className="cat-sales-list" id="modeller">
         <div className="wrap">
           <div className="section-head">
             <p className="eyebrow">{tr ? "Modeller" : "Models"}</p>
@@ -196,27 +180,6 @@ export function CategoryCatalog({ category }: { category: CatalogCategory }) {
           </div>
         </section>
       ) : null}
-
-      <div className="cat-sales-bar" role="region" aria-label={t.quote}>
-        <div className="wrap cat-sales-bar-inner">
-          <p>
-            <strong>{category.code}</strong>
-            <span>
-              {tr
-                ? `${category.products.length} model için teklif alın`
-                : `Get a quote for ${category.products.length} models`}
-            </span>
-          </p>
-          <div>
-            <a className="btn btn-primary" href={mailtoCategory}>
-              {t.quote}
-            </a>
-            <a className="btn btn-ghost-dark" href={waCategory} target="_blank" rel="noreferrer">
-              WhatsApp
-            </a>
-          </div>
-        </div>
-      </div>
     </>
   );
 }

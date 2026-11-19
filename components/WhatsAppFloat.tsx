@@ -17,10 +17,10 @@ export function WhatsAppFloat() {
       className="whatsapp-float"
       href={company.whatsapp}
       target="_blank"
-      rel="noopener noreferrer"
+      rel="noreferrer"
       aria-label={label}
     >
-      <Image src={withBase("/media/WhatsApp.webp")} alt="" width={56} height={56} priority />
+      <Image src={withBase("/media/WhatsApp.png")} alt="" width={64} height={64} priority />
     </a>
   );
 }

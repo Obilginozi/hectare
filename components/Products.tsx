@@ -36,11 +36,6 @@ export function Products() {
   const groups =
     activeGroup === "all" ? [...catalogGroups] : catalogGroups.filter((group) => group === activeGroup);
   const mailto = `mailto:${company.email}?subject=${quoteSubject}&body=${tr ? quoteBodyTr : quoteBodyEn}`;
-  const whatsapp = `${company.whatsapp}?text=${encodeURIComponent(
-    tr
-      ? "Merhaba, Hectare ürün kataloğundan teklif almak istiyorum."
-      : "Hello, I would like a quotation from the Hectare product catalogue.",
-  )}`;
 
   return (
     <>
@@ -51,21 +46,13 @@ export function Products() {
           <h1>{tr ? "Sahaya hazır makineler" : "Field-ready machinery"}</h1>
           <p className="page-hero-lede">
             {tr
-              ? "Ekimden hasada doğru ekipmanı seçin; aynı gün teklif ve tedarik görüşmesi başlatın."
-              : "Choose the right equipment from seeding to harvest—and start a same-day quote conversation."}
+              ? "Ekimden hasada doğru ekipmanı seçin."
+              : "Choose the right equipment from seeding to harvest."}
           </p>
-          <div className="hero-actions">
-            <a className="btn btn-primary" href={mailto}>
-              {t.quote}
-            </a>
-            <a className="btn btn-ghost" href={whatsapp} target="_blank" rel="noreferrer">
-              WhatsApp
-            </a>
-          </div>
         </div>
       </section>
 
-      <section className="section section-muted products-proof">
+      <section className="products-proof">
         <div className="wrap">
           <ul className="products-proof-list">
             <li>
@@ -88,9 +75,9 @@ export function Products() {
         </div>
       </section>
 
-      <section className="section products-browse" id="katalog">
+      <section className="products-browse" id="katalog">
         <div className="wrap">
-          <div className="section-head products-browse-head">
+          <div className="products-browse-head">
             <div>
               <p className="eyebrow">{tr ? "Katalog" : "Catalogue"}</p>
               <h2 className="block-title">

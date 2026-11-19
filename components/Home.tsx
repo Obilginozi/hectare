@@ -2,19 +2,25 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { HomeCatalogRail } from "@/components/HomeCatalogRail";
 import { PageFilm } from "@/components/PageFilm";
 import { useLocale } from "@/components/Locale";
 import { catalogGroups, categoriesIn } from "@/lib/catalog";
 import { trade } from "@/lib/content";
-import { categoryName, countryName, groupName, navName } from "@/lib/i18n";
-import { productPhoto } from "@/lib/product-photos";
+import { countryName, groupName, navName } from "@/lib/i18n";
 import { withBase } from "@/lib/paths";
-
-const homeGroups = [...catalogGroups];
 
 function categoriesForHome(group: string) {
   return categoriesIn(group).filter((category) => category.code !== "AKT");
 }
+
+const homeGroups = [...catalogGroups]
+  .map((group) => {
+    const categories = categoriesForHome(group);
+    const productCount = categories.reduce((sum, category) => sum + category.products.length, 0);
+    return { group, categories, productCount };
+  })
+  .sort((a, b) => b.productCount - a.productCount || b.categories.length - a.categories.length);
 
 export function Home() {
   const { lang, t } = useLocale();
@@ -38,14 +44,6 @@ export function Home() {
               ? "Wholesale supply, international trade and distributorships built on more than thirty years of sector experience."
               : "Otuz yılı aşkın sektörel tecrübeyle toptan tedarik, uluslararası ticaret ve distribütörlük."}
           </p>
-          <div className="hero-actions">
-            <Link className="btn btn-primary" href="/urunler">
-              {t.viewProducts}
-            </Link>
-            <Link className="btn btn-ghost" href="/iletisim">
-              {lang === "en" ? "Contact" : "İletişim"}
-            </Link>
-          </div>
         </div>
       </section>
 
@@ -87,42 +85,13 @@ export function Home() {
                   : "Sahaya hazır ekipman, hızlı teklif."}
               </h2>
             </div>
-            {homeGroups.map((group) => (
-              <div key={group} className="home-catalog-group" aria-labelledby={`grup-${group}`}>
-                <div className="home-catalog-head">
-                  <h3 id={`grup-${group}`}>{groupName(lang, group)}</h3>
-                  <Link href="/urunler">{t.viewProducts}</Link>
-                </div>
-                <ul className="tile-grid tile-grid-4">
-                  {categoriesForHome(group).map((category) => {
-                    const photo = category.products.map((item) => productPhoto(item.code)).find(Boolean);
-                    return (
-                      <li key={category.slug}>
-                        <Link className="tile tile-compact" href={`/urunler/${category.slug}`}>
-                          <span className="tile-photo">
-                            {photo ? (
-                              <Image
-                                src={withBase(photo)}
-                                alt=""
-                                fill
-                                sizes="(max-width: 900px) 50vw, 25vw"
-                              />
-                            ) : null}
-                            <span className="tile-badge">{category.code}</span>
-                          </span>
-                          <span className="tile-body">
-                            <span className="tile-name">
-                              {categoryName(lang, category.slug, category.name)}
-                            </span>
-                            <span className="tile-meta">{t.productCount(category.products.length)}</span>
-                            <span className="tile-more">{t.view}</span>
-                          </span>
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
+            {homeGroups.map(({ group, categories }) => (
+              <HomeCatalogRail
+                key={group}
+                groupId={`grup-${group}`}
+                groupLabel={groupName(lang, group)}
+                categories={categories}
+              />
             ))}
           </div>
         </section>
