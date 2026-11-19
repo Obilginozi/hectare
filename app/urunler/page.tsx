@@ -5,7 +5,7 @@ import { canonicalPath } from "@/lib/paths";
 export const metadata: Metadata = {
   title: "Ürünler",
   description:
-    "Hectare AŞ tarım makineleri tedarik eder. Ekim, toprak işleme, ot hasadı ve traktör ekipmanları.",
+    "Hectare AŞ tarım makineleri kataloğu. Ekim, toprak işleme, ot hasadı ve traktör ekipmanlarında ürün koduyla hızlı teklif alın.",
   alternates: { canonical: canonicalPath("/urunler") },
 };
 
