@@ -5,7 +5,7 @@ import { canonicalPath } from "@/lib/paths";
 export const metadata: Metadata = {
   title: "Akıllı Tarım",
   description:
-    "Hectare akıllı tarım teknolojileri. Hassas kontrol, otomatik dümenleme ve tarla yönetimi çözümleri.",
+    "Hectare ile akıllı tarım: GNSS konumlandırma, otomatik dümenleme, değişken oranlı uygulama, haritalama ve ekipman entegrasyonu.",
   alternates: { canonical: canonicalPath("/akilli-tarim") },
 };
 

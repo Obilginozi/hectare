@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { Manrope, Syne } from "next/font/google";
+import { Manrope, Source_Serif_4 } from "next/font/google";
 import { BottomBar } from "@/components/BottomBar";
 import { LocaleProvider, SkipLink } from "@/components/Locale";
 import { Navigation } from "@/components/Navigation";
@@ -9,11 +9,11 @@ import { company, description } from "@/lib/content";
 import { withBase } from "@/lib/paths";
 import "./globals.css";
 
-const syne = Syne({
+const display = Source_Serif_4({
   subsets: ["latin", "latin-ext"],
-  weight: ["500", "600", "700", "800"],
+  weight: ["500", "600", "700"],
   display: "swap",
-  variable: "--font-syne",
+  variable: "--font-display-face",
 });
 
 const manrope = Manrope({
@@ -77,7 +77,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="tr" className={`${syne.variable} ${manrope.variable}`}>
+    <html lang="tr" className={`${display.variable} ${manrope.variable}`}>
       <body>
         <LocaleProvider>
           <SkipLink />
