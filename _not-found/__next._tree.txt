@@ -1,4 +1,4 @@
-:HL["/hectare/_next/static/chunks/3fo4iisnn63ja.css","style"]
+:HL["/hectare/_next/static/chunks/293a5dppfd493.css","style"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"/_not-found","h":96,"c":"$Q2"}]]
-0:{"b":"-b5lK3VXcIG5FlECUAT2w","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"gsOARIz2E31PgCR7i0EBN","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
