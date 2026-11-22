@@ -39,10 +39,23 @@ export function Navigation() {
   }, [pathname]);
 
   useEffect(() => {
+    if (!open) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, [open]);
+
+  useEffect(() => {
     return () => {
       if (closeTimer.current) clearTimeout(closeTimer.current);
     };
   }, []);
+
+  const quoteHref = `${company.whatsapp}?text=${encodeURIComponent(
+    lang === "en" ? "Hello, I would like a quotation." : "Merhaba, teklif almak istiyorum.",
+  )}`;
 
   return (
     <header className="site-header">
@@ -84,36 +97,26 @@ export function Navigation() {
                       <section key={group} className="mega-group">
                         <h3>{groupName(lang, group)}</h3>
                         {categoriesIn(group).map((category) => (
-                          <div key={category.slug} className="mega-category">
-                            <Link
-                              className="mega-category-link"
-                              href={`/urunler/${category.slug}`}
-                              onClick={() => setMegaOpen(false)}
-                            >
-                              <span>{categoryName(lang, category.slug, category.name)}</span>
-                              <em>{category.code}</em>
-                            </Link>
-                            <ul className="mega-codes">
-                              {category.products.map((product) => (
-                                <li key={product.code}>
-                                  <Link
-                                    href={`/urunler/${category.slug}`}
-                                    onClick={() => setMegaOpen(false)}
-                                  >
-                                    {product.code}
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
+                          <Link
+                            key={category.slug}
+                            className="mega-category-link"
+                            href={`/urunler/${category.slug}`}
+                            onClick={() => setMegaOpen(false)}
+                          >
+                            <span>{categoryName(lang, category.slug, category.name)}</span>
+                            <em>{category.code}</em>
+                          </Link>
                         ))}
                       </section>
                     ))}
                   </div>
                   <div className="mega-foot">
                     <Link href="/urunler" onClick={() => setMegaOpen(false)}>
-                      {lang === "en" ? "View all categories" : "Tüm kategorileri gör"}
+                      {lang === "en" ? "Full catalogue" : "Tüm katalog"}
                     </Link>
+                    <a href={quoteHref} target="_blank" rel="noopener noreferrer" onClick={() => setMegaOpen(false)}>
+                      {t.quote}
+                    </a>
                     <span>
                       {catalogCount} {lang === "en" ? "products" : "ürün"}
                     </span>
@@ -126,6 +129,9 @@ export function Navigation() {
               </Link>
             ),
           )}
+          <a className="nav-cta" href={quoteHref} target="_blank" rel="noopener noreferrer">
+            {t.quote}
+          </a>
           <button
             type="button"
             className="lang-switch"
@@ -148,21 +154,22 @@ export function Navigation() {
         </button>
       </div>
 
-      <div id="mobile-menu" className={open ? "mobile-drawer is-open" : "mobile-drawer"}>
+      <div
+        id="mobile-menu"
+        className={open ? "mobile-drawer is-open" : "mobile-drawer"}
+        hidden={!open}
+      >
         {navLinks.map((link) =>
           link.href === "/urunler" ? (
             <div key={link.href} className="mobile-catalog">
               <div className="mobile-catalog-head">
-                <Link
-                  href={link.href}
-                  aria-current={current(link.href)}
-                  onClick={() => setOpen(false)}
-                >
+                <Link href={link.href} aria-current={current(link.href)} onClick={() => setOpen(false)}>
                   {navName(lang, link.href, link.label)}
                 </Link>
                 <button
                   type="button"
                   aria-expanded={mobileCatalog}
+                  aria-label={lang === "en" ? "Product categories" : "Ürün kategorileri"}
                   onClick={() => setMobileCatalog((value) => !value)}
                 >
                   {mobileCatalog ? "−" : "+"}
@@ -174,27 +181,14 @@ export function Navigation() {
                     <section key={group}>
                       <h3>{groupName(lang, group)}</h3>
                       {categoriesIn(group).map((category) => (
-                        <div key={category.slug} className="mobile-category">
-                          <Link
-                            href={`/urunler/${category.slug}`}
-                            onClick={() => setOpen(false)}
-                          >
-                            {categoryName(lang, category.slug, category.name)}
-                            <em>{category.code}</em>
-                          </Link>
-                          <ul className="mobile-codes">
-                            {category.products.map((product) => (
-                              <li key={product.code}>
-                                <Link
-                                  href={`/urunler/${category.slug}`}
-                                  onClick={() => setOpen(false)}
-                                >
-                                  {product.code}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+                        <Link
+                          key={category.slug}
+                          href={`/urunler/${category.slug}`}
+                          onClick={() => setOpen(false)}
+                        >
+                          {categoryName(lang, category.slug, category.name)}
+                          <em>{category.code}</em>
+                        </Link>
                       ))}
                     </section>
                   ))}
@@ -212,6 +206,15 @@ export function Navigation() {
             </Link>
           ),
         )}
+        <a
+          className="nav-cta"
+          href={quoteHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => setOpen(false)}
+        >
+          {t.quote}
+        </a>
         <button type="button" onClick={() => setLang(lang === "tr" ? "en" : "tr")}>
           {lang === "tr" ? "English" : "Türkçe"}
         </button>

@@ -1,31 +1,36 @@
 "use client";
 
-import { PageFilm } from "@/components/PageFilm";
+import Image from "next/image";
+import { TradeWorldMap } from "@/components/TradeWorldMap";
 import { useLocale } from "@/components/Locale";
+import { trade } from "@/lib/content";
+import { countryName } from "@/lib/i18n";
+import { withBase } from "@/lib/paths";
 
 export function Corporate() {
   const { lang } = useLocale();
   const tr = lang === "tr";
+  const named = trade.filter((item) => item.works.length > 0);
+  const places = trade.filter((item) => item.works.length === 0);
 
   return (
     <>
-      <section className="page-hero">
-        <PageFilm src="/media/video1.mp4" poster="/media/video1-poster.jpg" />
-        <div className="page-hero-copy">
-          <p className="eyebrow">Hectare AŞ</p>
+      <section className="page-intro">
+        <div className="wrap">
+          <p className="eyebrow" style={{ color: "var(--brass-soft)" }}>
+            Hectare AŞ
+          </p>
           <h1>{tr ? "Kurumsal" : "Corporate"}</h1>
+          <p>
+            {tr
+              ? "Tarım ve iş makinelerinde güçlü tedarik, güvenilir iş ortaklığı."
+              : "Strong supply and a reliable partnership in agricultural and construction machinery."}
+          </p>
         </div>
       </section>
 
       <section className="section">
         <div className="wrap">
-          <div className="section-head">
-            <h2>
-              {tr
-                ? "Tarım ve iş makinelerinde güçlü tedarik, güvenilir iş ortaklığı."
-                : "Strong supply and a reliable partnership in agricultural and construction machinery."}
-            </h2>
-          </div>
           <div className="split-copy">
             {(tr
               ? [
@@ -127,6 +132,108 @@ export function Corporate() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <section className="section section-muted" id="markalar">
+        <div className="wrap">
+          <div className="section-head">
+            <h2>{tr ? "Markalar" : "Brands"}</h2>
+            <p className="lede">
+              {tr
+                ? "Hectare AŞ, 2022 yılından bu yana LEMKEN ve FIELDKING markalarının Türkiye distribütörlüğünü yürütmektedir."
+                : "Since 2022, Hectare AŞ has held the Turkey distributorships of LEMKEN and FIELDKING."}
+            </p>
+          </div>
+          <div className="brand-grid">
+            <article className="brand-card">
+              <div className="brand-card-media">
+                <Image
+                  src={withBase("/media/products/zirkon-side.jpg")}
+                  alt="Lemken Zirkon 8"
+                  fill
+                  sizes="(max-width: 800px) 100vw, 50vw"
+                />
+              </div>
+              <div className="brand-card-copy">
+                <h3>LEMKEN</h3>
+                <p>
+                  {tr
+                    ? "Lemken, 240 yılı aşkın süredir faaliyet gösteren bir tarım makineleri markasıdır. 2022 yılında Lemken’in Türkiye distribütörlüğüne başladık."
+                    : "Lemken is an agricultural machinery brand with more than 240 years of history. In 2022 we became the Turkey distributor of Lemken."}
+                </p>
+              </div>
+            </article>
+            <article className="brand-card">
+              <div className="brand-card-media">
+                <Image
+                  src={withBase("/media/products/fieldking-mark.jpg")}
+                  alt="Fieldking rotovatör"
+                  fill
+                  sizes="(max-width: 800px) 100vw, 50vw"
+                />
+              </div>
+              <div className="brand-card-copy">
+                <h3>FIELDKING</h3>
+                <p>
+                  {tr
+                    ? "Fieldking, 1978 yılında kurulmuş bir tarım ekipmanı üreticisidir. 2022 yılında Türkiye distribütörlüğüne başladık. ISO 9001:2008 sertifikası Fieldking’e aittir."
+                    : "Fieldking is an agricultural equipment manufacturer founded in 1978. In 2022 we became the Turkey distributor. ISO 9001:2008 belongs to Fieldking."}
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="section" id="ticaret">
+        <div className="wrap">
+          <div className="section-head">
+            <h2>{tr ? "Ticaret ağı" : "Trade network"}</h2>
+            <p className="lede">
+              {tr
+                ? "Sektörel deneyimden uluslararası ticarete — Hectare Foreign Trade."
+                : "From sector experience to international trade — Hectare Foreign Trade."}
+            </p>
+          </div>
+          <div className="split-copy">
+            {(tr
+              ? [
+                  "Tarım makineleri ve iş makineleri sektöründeki otuz yılı aşkın deneyimimiz, ürünleri ve kullanım ihtiyaçlarını doğru değerlendirmemizi sağlayan önemli bir birikim oluşturmuştur.",
+                  "Hectare Foreign Trade bünyesinde yürüttüğümüz on yılı aşkın uluslararası ticaret faaliyetimizle bu birikimi uluslararası pazarlara taşıyoruz. Farklı ülkeler, üreticiler ve tedarik kanallarıyla geliştirdiğimiz ticari ilişkiler sayesinde müşterilerimize daha geniş ürün seçenekleri ve rekabetçi tedarik imkânları sunuyoruz.",
+                  "Tedarik süreçlerimizi yalnızca ürün ve fiyat üzerinden değil; kalite, kullanım koşulları, erişilebilirlik, teslimat ve uzun vadeli verimlilik kriterleri doğrultusunda değerlendiriyoruz.",
+                ]
+              : [
+                  "More than thirty years of experience in agricultural and construction machinery helps us assess products and operating needs accurately.",
+                  "Through more than ten years of international trade under Hectare Foreign Trade, we carry this foundation into international markets and offer wider product choice and competitive supply options.",
+                  "We evaluate supply not only by product and price, but also by quality, conditions of use, accessibility, delivery and long-term efficiency.",
+                ]
+            ).map((p) => (
+              <p key={p}>{p}</p>
+            ))}
+          </div>
+
+          <TradeWorldMap />
+
+          <ul className="atlas">
+            {named.map((item) => (
+              <li key={item.country}>
+                <h3>{countryName(lang, item.country)}</h3>
+                <p>{item.works.join(" · ")}</p>
+              </li>
+            ))}
+          </ul>
+
+          {places.length ? (
+            <div style={{ marginTop: "2.5rem" }}>
+              <p className="eyebrow">{tr ? "Diğer ülkeler" : "Other countries"}</p>
+              <ul className="geo-list" style={{ marginTop: "0.85rem" }}>
+                {places.map((item) => (
+                  <li key={item.country}>{countryName(lang, item.country)}</li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
         </div>
       </section>
     </>

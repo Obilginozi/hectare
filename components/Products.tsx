@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { startTransition, useState } from "react";
-import { PageFilm } from "@/components/PageFilm";
+import { SmartAgricultureEmbed } from "@/components/SmartAgricultureEmbed";
 import { useLocale } from "@/components/Locale";
 import {
   catalog,
@@ -12,18 +12,9 @@ import {
   categoriesIn,
   type CatalogCategory,
 } from "@/lib/catalog";
-import { company } from "@/lib/content";
 import { categoryName, groupName } from "@/lib/i18n";
 import { productPhoto } from "@/lib/product-photos";
 import { withBase } from "@/lib/paths";
-
-const quoteSubject = encodeURIComponent("Hectare: Ürün teklifi");
-const quoteBodyTr = encodeURIComponent(
-  "Merhaba, ürün kataloğunuzdan teklif almak istiyorum. İhtiyacım olan makine / ürün kodu:",
-);
-const quoteBodyEn = encodeURIComponent(
-  "Hello, I would like a quotation from your product catalogue. Machine / product code needed:",
-);
 
 function categoryThumb(category: CatalogCategory) {
   return category.products.map((item) => productPhoto(item.code)).find(Boolean);
@@ -35,43 +26,26 @@ export function Products() {
   const [activeGroup, setActiveGroup] = useState<(typeof catalogGroups)[number] | "all">("all");
   const groups =
     activeGroup === "all" ? [...catalogGroups] : catalogGroups.filter((group) => group === activeGroup);
-  const mailto = `mailto:${company.email}?subject=${quoteSubject}&body=${tr ? quoteBodyTr : quoteBodyEn}`;
 
   return (
     <>
-      <section className="page-hero">
-        <PageFilm src="/media/video4.mp4" poster="/media/video4-poster.jpg" />
-        <div className="page-hero-copy">
-          <p className="eyebrow">Hectare</p>
-          <h1>{tr ? "Sahaya hazır makineler" : "Field-ready machinery"}</h1>
-          <p className="page-hero-lede">
-            {tr
-              ? "Ekimden hasada doğru ekipmanı seçin."
-              : "Choose the right equipment from seeding to harvest."}
-          </p>
-        </div>
-      </section>
-
-      <section className="products-proof">
+      <section className="page-intro">
         <div className="wrap">
-          <ul className="products-proof-list">
-            <li>
-              <strong>{catalogCount}+</strong>
-              <span>{tr ? "katalog ürünü" : "catalogue models"}</span>
-            </li>
-            <li>
-              <strong>{catalog.length}</strong>
-              <span>{tr ? "ürün kategorisi" : "product categories"}</span>
-            </li>
-            <li>
-              <strong>4</strong>
-              <span>{tr ? "iş grubu" : "equipment groups"}</span>
-            </li>
-            <li>
-              <strong>{tr ? "Aynı gün" : "Same day"}</strong>
-              <span>{tr ? "teklif dönüşü hedefi" : "quote response target"}</span>
-            </li>
-          </ul>
+          <h1>{tr ? "Sahaya hazır makineler" : "Field-ready machinery"}</h1>
+          <p>
+            {tr
+              ? "Ekimden hasada doğru ekipmanı seçin; ürün koduyla teklif isteyin."
+              : "Choose the right equipment from seeding to harvest; request a quote with the product code."}
+          </p>
+          <div className="page-intro-meta">
+            <span>
+              {catalogCount}+ {tr ? "katalog ürünü" : "catalogue models"}
+            </span>
+            <span>
+              {catalog.length} {tr ? "kategori" : "categories"}
+            </span>
+            <span>{tr ? "Aynı gün teklif hedefi" : "Same-day quote target"}</span>
+          </div>
         </div>
       </section>
 
@@ -79,10 +53,7 @@ export function Products() {
         <div className="wrap">
           <div className="products-browse-head">
             <div>
-              <p className="eyebrow">{tr ? "Katalog" : "Catalogue"}</p>
-              <h2 className="block-title">
-                {tr ? "İhtiyacınıza göre seçin" : "Choose by your operation"}
-              </h2>
+              <h2 className="block-title">{tr ? "İhtiyacınıza göre seçin" : "Choose by your operation"}</h2>
               <p className="lede">
                 {tr
                   ? "Gruplara göre filtreleyin, kategoriyi açın, ürün koduyla teklif isteyin."
@@ -172,13 +143,18 @@ export function Products() {
               );
             })}
           </div>
+
+          {(activeGroup === "all" || activeGroup === "Ekim ve bakım") && (
+            <section className="section" style={{ paddingInline: 0 }} id="akilli-tarim">
+              <SmartAgricultureEmbed compact showProducts={false} />
+            </section>
+          )}
         </div>
       </section>
 
       <section className="section section-dark products-path">
         <div className="wrap">
           <div className="section-head">
-            <p className="eyebrow">{tr ? "Süreç" : "Process"}</p>
             <h2 className="block-title">
               {tr ? "Tekliften teslimata üç adım" : "Three steps from quote to delivery"}
             </h2>
@@ -215,27 +191,6 @@ export function Products() {
         </div>
       </section>
 
-      <section className="band products-close">
-        <PageFilm src="/media/video6.mp4" poster="/media/video6-poster.jpg" />
-        <div className="band-copy">
-          <h2 id="teklif-title">
-            {tr ? "Bu sezon için doğru makineyi kaçırmayın." : "Do not miss the right machine for this season."}
-          </h2>
-          <p>
-            {tr
-              ? "Ürün kodunu yazın; stok, tedarik ve fiyat için hemen dönüş yapalım."
-              : "Send a product code—we will come back on stock, supply, and pricing."}
-          </p>
-          <div className="hero-actions" style={{ justifyContent: "flex-end" }}>
-            <a className="btn btn-primary" href={mailto}>
-              {t.quote}
-            </a>
-            <a className="btn btn-ghost" href={`tel:${company.phoneTel}`}>
-              {company.phoneDisplay}
-            </a>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

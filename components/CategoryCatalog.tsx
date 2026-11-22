@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { PageFilm } from "@/components/PageFilm";
+import { SmartAgricultureEmbed } from "@/components/SmartAgricultureEmbed";
 import { useLocale } from "@/components/Locale";
 import { catalog } from "@/lib/catalog";
 import { company } from "@/lib/content";
@@ -14,59 +14,45 @@ import type { CatalogCategory } from "@/lib/catalog";
 export function CategoryCatalog({ category }: { category: CatalogCategory }) {
   const { lang, t } = useLocale();
   const tr = lang === "tr";
-  const categoryQuote = encodeURIComponent(
-    tr
-      ? `${category.name} (${category.code}) kategorisinden teklif almak istiyorum.`
-      : `I would like a quotation from the ${category.name} (${category.code}) category.`,
-  );
-  const mailtoCategory = `mailto:${company.email}?subject=${encodeURIComponent(`Hectare: ${category.code}`)}&body=${categoryQuote}`;
-  const waCategory = `${company.whatsapp}?text=${categoryQuote}`;
+  const isSmart = category.slug === "akt";
   const related = catalog
     .filter((item) => item.group === category.group && item.slug !== category.slug)
     .slice(0, 4);
 
   return (
     <>
-      <section className="page-hero">
-        <PageFilm src="/media/video4.mp4" poster="/media/video4-poster.jpg" />
-        <div className="page-hero-copy">
-          <p className="eyebrow">{groupName(lang, category.group)}</p>
-          <h1>{categoryName(lang, category.slug, category.name)}</h1>
-          <p className="page-hero-lede">
-            {tr
-              ? `${category.products.length} model · ${category.code} ürün kodlarıyla aynı gün teklif.`
-              : `${category.products.length} models · same-day quotes with ${category.code} product codes.`}
+      <section className="page-intro">
+        <div className="wrap">
+          <p className="eyebrow" style={{ color: "var(--brass-soft)" }}>
+            {groupName(lang, category.group)}
           </p>
+          <h1>{categoryName(lang, category.slug, category.name)}</h1>
+          <p>
+            {tr
+              ? `${category.products.length} model · ${category.code} ürün kodlarıyla teklif.`
+              : `${category.products.length} models · quotes with ${category.code} product codes.`}
+          </p>
+          <div className="page-intro-meta">
+            <span>{tr ? "Aynı gün teklif" : "Same-day quote"}</span>
+            <span>
+              {category.products.length} {tr ? "model" : "models"}
+            </span>
+            <span>{category.code}</span>
+          </div>
         </div>
       </section>
 
-      <section className="cat-sales-proof">
-        <div className="wrap">
-          <ul>
-            <li>
-              <strong>{tr ? "Aynı gün" : "Same day"}</strong>
-              <span>{tr ? "teklif dönüşü" : "quote response"}</span>
-            </li>
-            <li>
-              <strong>{category.products.length}</strong>
-              <span>{tr ? "hazır model" : "ready models"}</span>
-            </li>
-            <li>
-              <strong>{category.code}</strong>
-              <span>{tr ? "ürün grubu" : "product group"}</span>
-            </li>
-            <li>
-              <strong>30+</strong>
-              <span>{tr ? "yıl tedarik" : "years supply"}</span>
-            </li>
-          </ul>
-        </div>
-      </section>
+      {isSmart ? (
+        <section className="section">
+          <div className="wrap">
+            <SmartAgricultureEmbed showProducts={false} />
+          </div>
+        </section>
+      ) : null}
 
       <section className="cat-sales-list" id="modeller">
         <div className="wrap">
           <div className="section-head">
-            <p className="eyebrow">{tr ? "Modeller" : "Models"}</p>
             <h2 className="block-title">
               {tr ? "Kodu seçin, teklifi başlatın" : "Pick a code, start the quote"}
             </h2>
@@ -123,38 +109,11 @@ export function CategoryCatalog({ category }: { category: CatalogCategory }) {
         </div>
       </section>
 
-      <section className="section section-dark cat-sales-close">
-        <div className="wrap">
-          <h2 className="block-title">
-            {tr ? "Bu grubu kaçırmadan tedarik edin." : "Secure supply from this group now."}
-          </h2>
-          <p className="lede">
-            {tr
-              ? "Ürün kodunu yazın; uygunluk ve fiyat için hemen dönüş yapalım."
-              : "Send a product code—we will come back promptly on availability and pricing."}
-          </p>
-          <div className="hero-actions">
-            <a className="btn btn-primary" href={mailtoCategory}>
-              {t.quote}
-            </a>
-            <a className="btn btn-ghost" href={waCategory} target="_blank" rel="noreferrer">
-              WhatsApp
-            </a>
-            <Link className="btn btn-ghost" href="/urunler">
-              {tr ? "Tüm ürünler" : "All products"}
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {related.length ? (
         <section className="section section-muted">
           <div className="wrap">
             <div className="section-head">
-              <p className="eyebrow">{tr ? "Aynı grup" : "Same group"}</p>
-              <h2 className="block-title">
-                {tr ? "Birlikte değerlendirin" : "Review together"}
-              </h2>
+              <h2 className="block-title">{tr ? "Birlikte değerlendirin" : "Review together"}</h2>
             </div>
             <ul className="tile-grid tile-grid-4">
               {related.map((item) => {

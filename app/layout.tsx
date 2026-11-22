@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { Manrope, Source_Serif_4 } from "next/font/google";
+import { Barlow_Condensed, IBM_Plex_Sans } from "next/font/google";
 import { BottomBar } from "@/components/BottomBar";
 import { LocaleProvider, SkipLink } from "@/components/Locale";
 import { Navigation } from "@/components/Navigation";
@@ -9,18 +9,18 @@ import { company, description } from "@/lib/content";
 import { withBase } from "@/lib/paths";
 import "./globals.css";
 
-const display = Source_Serif_4({
+const display = Barlow_Condensed({
   subsets: ["latin", "latin-ext"],
   weight: ["500", "600", "700"],
   display: "swap",
   variable: "--font-display-face",
 });
 
-const manrope = Manrope({
+const body = IBM_Plex_Sans({
   subsets: ["latin", "latin-ext"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
-  variable: "--font-manrope",
+  variable: "--font-body-face",
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f7f9f7",
+  themeColor: "#141618",
   width: "device-width",
   initialScale: 1,
 };
@@ -77,7 +77,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="tr" className={`${display.variable} ${manrope.variable}`}>
+    <html lang="tr" className={`${display.variable} ${body.variable}`}>
       <body>
         <LocaleProvider>
           <SkipLink />

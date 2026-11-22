@@ -23,12 +23,11 @@ export const company = {
 export const description =
   "Hectare AŞ olarak otuz yıldan uzun süredir tarım makineleri ve iş makineleri tedarik ediyoruz. On yıldan uzun süredir tecrübemiz ve kadromuzla uluslararası ticaret yürütüyoruz.";
 
+/** Primary header navigation */
 export const navLinks = [
-  { href: "/kurumsal", label: "Kurumsal" },
-  { href: "/ticaret", label: "İştiraklerimiz" },
   { href: "/urunler", label: "Ürünler" },
-  { href: "/akilli-tarim", label: "Akıllı Tarım" },
-  { href: "/markalar", label: "Markalar" },
+  { href: "/is-makineleri", label: "İş Makineleri" },
+  { href: "/kurumsal", label: "Kurumsal" },
   { href: "/iletisim", label: "İletişim" },
 ] as const;
 
@@ -73,7 +72,13 @@ export const trade = [
   { country: "Japonya", works: ["Futurebud", "Cigs"] },
 ] as const;
 
-export const footerLinks = [...navLinks] as const;
+/** Footer: primary + legal context pages linked from kurumsal anchors where useful */
+export const footerLinks = [
+  ...navLinks,
+  { href: "/kurumsal#markalar", label: "Markalar" },
+  { href: "/kurumsal#ticaret", label: "Ticaret ağı" },
+  { href: "/urunler/akt", label: "Akıllı Tarım" },
+] as const;
 
 export const chapters = [
   {
@@ -89,4 +94,3 @@ export const chapters = [
     lines: ["TRAKTÖR, EKİPMAN", "VE YEDEK PARÇA."],
   },
 ] as const;
-

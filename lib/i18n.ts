@@ -53,10 +53,8 @@ export const messages = {
 
 const nav: Record<string, Record<Lang, string>> = {
   "/kurumsal": { tr: "Kurumsal", en: "Corporate" },
-  "/ticaret": { tr: "İştiraklerimiz", en: "Our Partnerships" },
   "/urunler": { tr: "Ürünler", en: "Products" },
-  "/akilli-tarim": { tr: "Akıllı Tarım", en: "Smart Farming" },
-  "/markalar": { tr: "Markalar", en: "Brands" },
+  "/is-makineleri": { tr: "İş Makineleri", en: "Heavy Equipment" },
   "/iletisim": { tr: "İletişim", en: "Contact" },
   "/yasal/iptal-ve-iade": {
     tr: "İptal Ve İade Koşulları",
@@ -143,10 +141,35 @@ const titles: Record<string, Record<Lang, string>> = {
     en: "Hectare AŞ | Agricultural and Construction Machinery",
   },
   "/kurumsal": { tr: "Kurumsal | Hectare AŞ", en: "Corporate | Hectare AŞ" },
-  "/ticaret": { tr: "İştiraklerimiz | Hectare AŞ", en: "Our Partnerships | Hectare AŞ" },
   "/urunler": { tr: "Ürünler | Hectare AŞ", en: "Products | Hectare AŞ" },
-  "/akilli-tarim": { tr: "Akıllı Tarım | Hectare AŞ", en: "Smart Farming | Hectare AŞ" },
-  "/markalar": { tr: "Markalar | Hectare AŞ", en: "Brands | Hectare AŞ" },
+  "/is-makineleri": {
+    tr: "İş Makineleri | Hectare AŞ",
+    en: "Heavy Equipment | Hectare AŞ",
+  },
+  "/is-makineleri/ekskavatorler": {
+    tr: "Satılık Ekskavatörler | Hectare AŞ",
+    en: "Excavators for Sale | Hectare AŞ",
+  },
+  "/is-makineleri/beko-loderler": {
+    tr: "Satılık Beko Loderler | Hectare AŞ",
+    en: "Backhoe Loaders for Sale | Hectare AŞ",
+  },
+  "/is-makineleri/mini-ekskavatorler": {
+    tr: "Satılık Mini Ekskavatörler | Hectare AŞ",
+    en: "Mini Excavators for Sale | Hectare AŞ",
+  },
+  "/is-makineleri/lastik-yukleyiciler": {
+    tr: "Satılık Lastik Yükleyiciler | Hectare AŞ",
+    en: "Wheel Loaders for Sale | Hectare AŞ",
+  },
+  "/is-makineleri/forkliftler": {
+    tr: "Satılık Forkliftler | Hectare AŞ",
+    en: "Forklifts for Sale | Hectare AŞ",
+  },
+  "/is-makineleri/ihracat": {
+    tr: "Makine İhracatı ve Sevkiyat | Hectare AŞ",
+    en: "Machinery Export & Shipping | Hectare AŞ",
+  },
   "/iletisim": { tr: "İletişim | Hectare AŞ", en: "Contact | Hectare AŞ" },
   "/yasal/iptal-ve-iade": {
     tr: "İptal Ve İade Koşulları | Hectare AŞ",
