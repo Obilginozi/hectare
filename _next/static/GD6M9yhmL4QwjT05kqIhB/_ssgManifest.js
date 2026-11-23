@@ -1,1 +1,0 @@
-self.__SSG_MANIFEST=new Set(["\u002Furunler\u002F[kategori]","\u002Fyasal\u002F[slug]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()
