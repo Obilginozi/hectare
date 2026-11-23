@@ -52,7 +52,7 @@ export function Home() {
         <section className="section">
           <div className="wrap">
             <div className="section-head">
-              <h2>{tr ? "İki hat, tek tedarik ortağı." : "Two lines, one supply partner."}</h2>
+              <h2>{tr ? "İki Hat, Tek Tedarik Ortağı." : "Two Lines, One Supply Partner."}</h2>
               <p className="lede">
                 {tr
                   ? "Tarım ekipmanları ve iş makinelerinde toptan tedarik ile ihracat."
@@ -62,23 +62,23 @@ export function Home() {
             <div className="lane-grid">
               <Link className="lane-panel" href="/urunler">
                 <LaneVideo src="/media/lanes/tarim.mp4" poster="/media/video4-poster.jpg" />
-                <h3>{tr ? "Tarım ekipmanları" : "Agricultural equipment"}</h3>
+                <h3>{tr ? "Tarım Ekipmanları" : "Agricultural Equipment"}</h3>
                 <p>
                   {tr
                     ? "Ekimden hasada katalog ürünleri."
                     : "Catalogue equipment from seeding to harvest."}
                 </p>
-                <span>{tr ? "Kataloğa git" : "Open catalogue"}</span>
+                <span>{tr ? "Kataloğa Git" : "Open Catalogue"}</span>
               </Link>
               <Link className="lane-panel" href="/is-makineleri">
                 <LaneVideo src="/media/lanes/is-makineleri.mp4" poster="/media/heavy/hero-poster.jpg" />
-                <h3>{tr ? "İş makineleri" : "Heavy equipment"}</h3>
+                <h3>{tr ? "İş Makineleri" : "Heavy Equipment"}</h3>
                 <p>
                   {tr
                     ? "Ekskavatörden forklifte ihracat ve sevkiyat."
                     : "From excavators to forklifts — export and shipping."}
                 </p>
-                <span>{tr ? "Makineyi seç" : "Browse machines"}</span>
+                <span>{tr ? "Makineyi Seç" : "Browse Machines"}</span>
               </Link>
             </div>
           </div>
@@ -87,7 +87,7 @@ export function Home() {
         <section className="section section-muted home-catalog" aria-label={t.productsLink}>
           <div className="wrap">
             <div className="section-head">
-              <h2>{tr ? "Tarım ekipmanları." : "Agricultural equipment."}</h2>
+              <h2>{tr ? "Tarım Ekipmanları." : "Agricultural Equipment."}</h2>
               <p className="lede">
                 {tr
                   ? "Gruplara göre seçin, modelleri ürün kodlarıyla inceleyin."
@@ -108,7 +108,7 @@ export function Home() {
         <section className="section" aria-label={navName(lang, "/is-makineleri", "İş Makineleri")}>
           <div className="wrap">
             <div className="section-head">
-              <h2>{tr ? "İş makineleri." : "Heavy equipment."}</h2>
+              <h2>{tr ? "İş Makineleri." : "Heavy Equipment."}</h2>
               <p className="lede">
                 {tr
                   ? "Ekskavatör, beko loder, lastik yükleyici, mini ekskavatör ve forklift tedariki; Türkiye’den uluslararası sevkiyat."
@@ -130,7 +130,7 @@ export function Home() {
                     <span className="he-machine-card-body">
                       <h3>{item.title[lang]}</h3>
                       <p>{item.card[lang]}</p>
-                      <span>{tr ? "Detayları gör" : "View details"}</span>
+                      <span>{tr ? "Detayları Gör" : "View Details"}</span>
                     </span>
                   </Link>
                 </li>
@@ -141,7 +141,7 @@ export function Home() {
                 {navName(lang, "/is-makineleri", "İş Makineleri")}
               </Link>
               <Link className="btn btn-primary" href={`/is-makineleri/${heavyEquipmentExport.slug}`}>
-                {tr ? "İhracat ve sevkiyat" : "Export & shipping"}
+                {tr ? "İhracat Ve Sevkiyat" : "Export & Shipping"}
               </Link>
             </div>
           </div>
@@ -150,7 +150,7 @@ export function Home() {
         <section className="section section-muted">
           <div className="wrap">
             <div className="section-head">
-              <h2>{tr ? "Türkiye distribütörlükleri" : "Turkey distributorships"}</h2>
+              <h2>{tr ? "Türkiye Distribütörlükleri" : "Turkey Distributorships"}</h2>
               <p className="lede">
                 {tr
                   ? "2022’den bu yana LEMKEN ve FIELDKING Türkiye."
@@ -171,8 +171,8 @@ export function Home() {
                   <h3>LEMKEN</h3>
                   <p>
                     {tr
-                      ? "Lemken, 240 yılı aşkın süredir faaliyet gösteren bir tarım makineleri markasıdır. Türkiye distribütörlüğüne 2022’de başladık."
-                      : "Lemken is an agricultural machinery brand with more than 240 years of history. We became the Turkey distributor in 2022."}
+                      ? "LEMKEN, 240 yılı aşkın süredir faaliyet gösteren bir tarım makineleri markasıdır. Markanın Türkiye distribütörlüğü, 2022 yılından bu yana Hectare AŞ tarafından yürütülmektedir."
+                      : "LEMKEN is an agricultural machinery brand with more than 240 years of history. Since 2022, Hectare AŞ has held its Turkey distributorship."}
                   </p>
                   <Link className="btn btn-dark" href="/kurumsal#markalar">
                     {t.view}
@@ -192,8 +192,8 @@ export function Home() {
                   <h3>FIELDKING</h3>
                   <p>
                     {tr
-                      ? "Fieldking, 1978’de kurulmuş bir tarım ekipmanı üreticisidir. Türkiye distribütörlüğüne 2022’de başladık. ISO 9001:2008 Fieldking sertifikasıdır."
-                      : "Fieldking is an agricultural equipment manufacturer founded in 1978. We became the Turkey distributor in 2022. ISO 9001:2008 belongs to Fieldking."}
+                      ? "FIELDKING, 1978 yılında kurulmuş bir tarım ekipmanı üreticisidir. Markanın Türkiye distribütörlüğü, 2022 yılından bu yana Hectare AŞ tarafından yürütülmektedir. ISO 9001:2008 sertifikası FIELDKING’e aittir."
+                      : "FIELDKING is an agricultural equipment manufacturer founded in 1978. Since 2022, Hectare AŞ has held its Turkey distributorship. The ISO 9001:2008 certification belongs to FIELDKING."}
                   </p>
                   <Link className="btn btn-dark" href="/kurumsal#markalar">
                     {t.view}
@@ -207,7 +207,7 @@ export function Home() {
         <section className="section">
           <div className="wrap">
             <div className="section-head">
-              <h2>{tr ? "Ticaret coğrafyası" : "Trade geography"}</h2>
+              <h2>{tr ? "Ticaret Coğrafyası" : "Trade Geography"}</h2>
               <p className="lede">
                 {tr
                   ? "Pazarlar, üreticiler ve tedarik kanalları arasında kurduğumuz ticari ilişkiler."
@@ -221,7 +221,7 @@ export function Home() {
             </ul>
             <div style={{ marginTop: "1.5rem" }}>
               <Link className="btn btn-dark" href="/kurumsal#ticaret">
-                {tr ? "Ticaret ağını gör" : "See trade network"}
+                {tr ? "Ticaret Ağını Gör" : "See Trade Network"}
               </Link>
             </div>
           </div>
@@ -229,7 +229,7 @@ export function Home() {
 
         <section className="close-band">
           <div className="wrap">
-            <h2>{tr ? "İletişime geçin." : "Get in touch."}</h2>
+            <h2>{tr ? "İletişime Geçin." : "Get In Touch."}</h2>
             <p>
               {tr
                 ? "Tarım ekipmanı veya iş makineleri hakkında sorularınız için bize ulaşın."

@@ -113,7 +113,7 @@ export function TradeWorldMap() {
   }, [lang, hubPoint]);
 
   const active = hovered ? points.find((p) => p.key === hovered) : null;
-  const title = lang === "en" ? "Trade geography" : "Ticaret coğrafyası";
+  const title = lang === "en" ? "Trade Geography" : "Ticaret Coğrafyası";
   const hubLabel = lang === "en" ? "Istanbul · Hectare" : "İstanbul · Hectare";
 
   return (

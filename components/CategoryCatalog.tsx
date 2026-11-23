@@ -90,7 +90,7 @@ export function CategoryCatalog({ category }: { category: CatalogCategory }) {
         <section className="section section-muted">
           <div className="wrap">
             <div className="section-head">
-              <h2 className="block-title">{tr ? "Birlikte değerlendirin" : "Review together"}</h2>
+              <h2 className="block-title">{tr ? "Birlikte Değerlendirin" : "Review Together"}</h2>
             </div>
             <ul className="tile-grid tile-grid-4">
               {related.map((item) => {

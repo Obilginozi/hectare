@@ -79,9 +79,11 @@ export function Corporate() {
         <div className="wrap">
           <div className="split-copy">
             <article>
-              <p className="eyebrow">{tr ? "Vizyonumuz" : "Our vision"}</p>
+              <p className="eyebrow">{tr ? "Vizyonumuz" : "Our Vision"}</p>
               <h2 className="block-title">
-                {tr ? "Tedarikte ilk tercih edilen iş ortağı olmak." : "To be the preferred partner in supply."}
+                {tr
+                  ? "Tedarikte İlk Tercih Edilen İş Ortağı Olmak."
+                  : "To Be The Preferred Partner In Supply."}
               </h2>
               <p>
                 {tr
@@ -90,11 +92,11 @@ export function Corporate() {
               </p>
             </article>
             <article>
-              <p className="eyebrow">{tr ? "Misyonumuz" : "Our mission"}</p>
+              <p className="eyebrow">{tr ? "Misyonumuz" : "Our Mission"}</p>
               <h2 className="block-title">
                 {tr
-                  ? "En doğru ürünü, en uygun koşullarda erişilebilir kılmak."
-                  : "To make the right product accessible under the right conditions."}
+                  ? "En Doğru Ürünü, En Uygun Koşullarda Erişilebilir Kılmak."
+                  : "To Make The Right Product Accessible Under The Right Conditions."}
               </h2>
               <p>
                 {tr
@@ -109,21 +111,21 @@ export function Corporate() {
       <section className="section">
         <div className="wrap">
           <div className="section-head">
-            <h2>{tr ? "Değerlerimiz" : "Our values"}</h2>
+            <h2>{tr ? "Değerlerimiz" : "Our Values"}</h2>
           </div>
           <ul className="value-grid">
             {(tr
               ? [
-                  ["Doğru ürün yaklaşımı", "Ürün seçiminde fiyatın yanı sıra kaliteyi, kullanım amacını ve işletme ihtiyaçlarını esas alıyoruz."],
-                  ["Uluslararası bakış açısı", "Global tedarik kanallarını ve ticari iş birliklerini geliştirerek ürün seçeneklerini genişletiyoruz."],
-                  ["Sürekli gelişim", "Değişen sektör ihtiyaçlarını takip ediyor, ürün portföyümüzü ve hizmet süreçlerimizi geliştiriyoruz."],
-                  ["Ekonomik verimlilik", "Müşterilerimizin satın alma maliyetlerini optimize etmelerine yardımcı olacak alternatifler sunuyoruz."],
+                  ["Doğru Ürün Yaklaşımı", "Ürün seçiminde fiyatın yanı sıra kaliteyi, kullanım amacını ve işletme ihtiyaçlarını esas alıyoruz."],
+                  ["Uluslararası Bakış Açısı", "Global tedarik kanallarını ve ticari iş birliklerini geliştirerek ürün seçeneklerini genişletiyoruz."],
+                  ["Sürekli Gelişim", "Değişen sektör ihtiyaçlarını takip ediyor, ürün portföyümüzü ve hizmet süreçlerimizi geliştiriyoruz."],
+                  ["Ekonomik Verimlilik", "Müşterilerimizin satın alma maliyetlerini optimize etmelerine yardımcı olacak alternatifler sunuyoruz."],
                 ]
               : [
-                  ["Right-product approach", "In product selection we take quality, intended use and business needs into account alongside price."],
-                  ["International outlook", "We widen product options by developing global supply channels and collaborations."],
-                  ["Continuous development", "We follow changing sector needs and develop our portfolio and service processes."],
-                  ["Economic efficiency", "We offer alternatives that help customers optimise purchasing costs."],
+                  ["Right-Product Approach", "In product selection we take quality, intended use and business needs into account alongside price."],
+                  ["International Outlook", "We widen product options by developing global supply channels and collaborations."],
+                  ["Continuous Development", "We follow changing sector needs and develop our portfolio and service processes."],
+                  ["Economic Efficiency", "We offer alternatives that help customers optimise purchasing costs."],
                 ]
             ).map(([title, text]) => (
               <li key={title}>
@@ -159,8 +161,8 @@ export function Corporate() {
                 <h3>LEMKEN</h3>
                 <p>
                   {tr
-                    ? "Lemken, 240 yılı aşkın süredir faaliyet gösteren bir tarım makineleri markasıdır. 2022 yılında Lemken’in Türkiye distribütörlüğüne başladık."
-                    : "Lemken is an agricultural machinery brand with more than 240 years of history. In 2022 we became the Turkey distributor of Lemken."}
+                    ? "LEMKEN, 240 yılı aşkın süredir faaliyet gösteren bir tarım makineleri markasıdır. Markanın Türkiye distribütörlüğü, 2022 yılından bu yana Hectare AŞ tarafından yürütülmektedir."
+                    : "LEMKEN is an agricultural machinery brand with more than 240 years of history. Since 2022, Hectare AŞ has held its Turkey distributorship."}
                 </p>
               </div>
             </article>
@@ -177,8 +179,8 @@ export function Corporate() {
                 <h3>FIELDKING</h3>
                 <p>
                   {tr
-                    ? "Fieldking, 1978 yılında kurulmuş bir tarım ekipmanı üreticisidir. 2022 yılında Türkiye distribütörlüğüne başladık. ISO 9001:2008 sertifikası Fieldking’e aittir."
-                    : "Fieldking is an agricultural equipment manufacturer founded in 1978. In 2022 we became the Turkey distributor. ISO 9001:2008 belongs to Fieldking."}
+                    ? "FIELDKING, 1978 yılında kurulmuş bir tarım ekipmanı üreticisidir. Markanın Türkiye distribütörlüğü, 2022 yılından bu yana Hectare AŞ tarafından yürütülmektedir. ISO 9001:2008 sertifikası FIELDKING’e aittir."
+                    : "FIELDKING is an agricultural equipment manufacturer founded in 1978. Since 2022, Hectare AŞ has held its Turkey distributorship. The ISO 9001:2008 certification belongs to FIELDKING."}
                 </p>
               </div>
             </article>
@@ -189,7 +191,7 @@ export function Corporate() {
       <section className="section" id="ticaret">
         <div className="wrap">
           <div className="section-head">
-            <h2>{tr ? "Ticaret ağı" : "Trade network"}</h2>
+            <h2>{tr ? "Ticaret Ağı" : "Trade Network"}</h2>
             <p className="lede">
               {tr
                 ? "Sektörel deneyimden uluslararası ticarete — Hectare Foreign Trade."
@@ -226,7 +228,7 @@ export function Corporate() {
 
           {places.length ? (
             <div style={{ marginTop: "2.5rem" }}>
-              <p className="eyebrow">{tr ? "Diğer ülkeler" : "Other countries"}</p>
+              <p className="eyebrow">{tr ? "Diğer Ülkeler" : "Other Countries"}</p>
               <ul className="geo-list" style={{ marginTop: "0.85rem" }}>
                 {places.map((item) => (
                   <li key={item.country}>{countryName(lang, item.country)}</li>

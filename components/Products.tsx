@@ -31,7 +31,7 @@ export function Products() {
     <>
       <section className="page-intro">
         <div className="wrap">
-          <h1>{tr ? "Sahaya hazır makineler" : "Field-ready machinery"}</h1>
+          <h1>{tr ? "Sahaya Hazır Makineler" : "Field-Ready Machinery"}</h1>
           <p>
             {tr
               ? "Ekimden hasada doğru ekipmanı seçin; modelleri ürün kodlarıyla inceleyin."
@@ -52,7 +52,7 @@ export function Products() {
         <div className="wrap">
           <div className="products-browse-head">
             <div>
-              <h2 className="block-title">{tr ? "İhtiyacınıza göre seçin" : "Choose by your operation"}</h2>
+              <h2 className="block-title">{tr ? "İhtiyacınıza Göre Seçin" : "Choose By Your Operation"}</h2>
               <p className="lede">
                 {tr
                   ? "Gruplara göre filtreleyin, kategoriyi açın, modelleri inceleyin."
@@ -129,7 +129,7 @@ export function Products() {
                                 ) : null}
                               </span>
                               <span className="tile-cta-row">
-                                <span className="tile-more">{tr ? "Modelleri gör" : "See models"}</span>
+                                <span className="tile-more">{tr ? "Modelleri Gör" : "See Models"}</span>
                               </span>
                             </span>
                           </Link>
@@ -142,7 +142,7 @@ export function Products() {
             })}
           </div>
 
-          {(activeGroup === "all" || activeGroup === "Ekim ve bakım") && (
+          {(activeGroup === "all" || activeGroup === "Ekim Ve Bakım") && (
             <section className="section" style={{ paddingInline: 0 }} id="akilli-tarim">
               <SmartAgricultureEmbed compact showProducts={false} />
             </section>
@@ -154,13 +154,13 @@ export function Products() {
         <div className="wrap">
           <div className="section-head">
             <h2 className="block-title">
-              {tr ? "Katalogdan tedarike üç adım" : "Three steps from catalogue to supply"}
+              {tr ? "Katalogdan Tedarike Üç Adım" : "Three Steps From Catalogue To Supply"}
             </h2>
           </div>
           <ol className="products-steps">
             <li>
               <strong>01</strong>
-              <h3>{tr ? "Doğru kategoriyi seçin" : "Pick the right category"}</h3>
+              <h3>{tr ? "Doğru Kategoriyi Seçin" : "Pick The Right Category"}</h3>
               <p>
                 {tr
                   ? "İş grubunuza uygun makineleri ürün kodlarıyla inceleyin."
@@ -169,7 +169,7 @@ export function Products() {
             </li>
             <li>
               <strong>02</strong>
-              <h3>{tr ? "İletişime geçin" : "Get in touch"}</h3>
+              <h3>{tr ? "İletişime Geçin" : "Get In Touch"}</h3>
               <p>
                 {tr
                   ? "İlgilendiğiniz kod ve modeli bizimle paylaşın."
@@ -178,7 +178,7 @@ export function Products() {
             </li>
             <li>
               <strong>03</strong>
-              <h3>{tr ? "Tedarik planlayın" : "Plan supply"}</h3>
+              <h3>{tr ? "Tedarik Planlayın" : "Plan Supply"}</h3>
               <p>
                 {tr
                   ? "Uygunluk, teslimat ve iş ortaklığı seçeneklerini birlikte netleştiririz."

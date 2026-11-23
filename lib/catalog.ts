@@ -17,8 +17,8 @@ export const catalog: readonly CatalogCategory[] = [
   {
     code: "MIB",
     slug: "mib",
-    name: "Hububat ve tohum ekim makineleri",
-    group: "Ekim ve bakım",
+    name: "Hububat Ve Tohum Ekim Makineleri",
+    group: "Ekim Ve Bakım",
     products: [
       item("HCT-MIB-001", "Profesyonel Kombine Hububat Mibzeri"),
       item("HCT-MIB-002", "Yüksek Kapasiteli Hububat Mibzeri"),
@@ -42,8 +42,8 @@ export const catalog: readonly CatalogCategory[] = [
   {
     code: "CAP",
     slug: "cap",
-    name: "Çapa ve sıra arası işleme",
-    group: "Ekim ve bakım",
+    name: "Çapa Ve Sıra Arası İşleme",
+    group: "Ekim Ve Bakım",
     products: [
       item("HCT-CAP-001", "Sabit Şaseli Yaylı Sıra Arası Çapa Makinesi"),
       item("HCT-CAP-002", "Katlanır Şaseli Yaylı Sıra Arası Çapa Makinesi"),
@@ -55,15 +55,15 @@ export const catalog: readonly CatalogCategory[] = [
   {
     code: "GUB",
     slug: "gub",
-    name: "Gübre dağıtma makineleri",
-    group: "Ekim ve bakım",
+    name: "Gübre Dağıtma Makineleri",
+    group: "Ekim Ve Bakım",
     products: [item("HCT-GUB-001", "Tek Diskli Santrifüj Gübre Dağıtma Makinesi")],
   },
   {
     code: "AKT",
     slug: "akt",
-    name: "Akıllı tarım sistemleri",
-    group: "Ekim ve bakım",
+    name: "Akıllı Tarım Sistemleri",
+    group: "Ekim Ve Bakım",
     products: [
       item("HCT-AKT-001", "Profesyonel Akıllı Tarım Kontrol Sistemi"),
       item("HCT-AKT-002", "Hassas Tarım Yönetim Sistemi"),
@@ -73,8 +73,8 @@ export const catalog: readonly CatalogCategory[] = [
   {
     code: "TOP",
     slug: "top",
-    name: "Diskli toprak işleme ve kültivatörler",
-    group: "Toprak işleme",
+    name: "Diskli Toprak İşleme Ve Kültivatörler",
+    group: "Toprak İşleme",
     products: [
       item("HCT-TOP-001", "Asılır Bağımsız Diskli Toprak İşleme Makinesi"),
       item("HCT-TOP-002", "Çekilir Bağımsız Diskli Toprak İşleme Makinesi"),
@@ -109,7 +109,7 @@ export const catalog: readonly CatalogCategory[] = [
     code: "ROT",
     slug: "rot",
     name: "Rotovatörler",
-    group: "Toprak işleme",
+    group: "Toprak İşleme",
     products: [
       item("HCT-ROT-001", "Profesyonel Tarla Rotovatörü"),
       item("HCT-ROT-002", "Katlanır Tarla Rotovatörü"),
@@ -126,15 +126,15 @@ export const catalog: readonly CatalogCategory[] = [
   {
     code: "TES",
     slug: "tes",
-    name: "Tesviye makineleri",
-    group: "Toprak işleme",
+    name: "Tesviye Makineleri",
+    group: "Toprak İşleme",
     products: [item("HCT-TES-001", "Traktör Arkası Arazi Tesviye Bıçağı")],
   },
   {
     code: "BIC",
     slug: "bic",
-    name: "Ot ve yem bitkisi biçme makineleri",
-    group: "Ot hasadı",
+    name: "Ot Ve Yem Bitkisi Biçme Makineleri",
+    group: "Ot Hasadı",
     products: [
       item("HCT-BIC-001", "Çift Hareketli Parmak Bıçaklı Biçme Makinesi"),
       item("HCT-BIC-002", "Ön Bağlantılı Parmak Bıçaklı Biçme Makinesi"),
@@ -150,8 +150,8 @@ export const catalog: readonly CatalogCategory[] = [
   {
     code: "OTK",
     slug: "otk",
-    name: "Ot dağıtma ve çevirme makineleri",
-    group: "Ot hasadı",
+    name: "Ot Dağıtma Ve Çevirme Makineleri",
+    group: "Ot Hasadı",
     products: [
       item("HCT-OTK-001", "Çift Rotorlu Ot Çevirme Makinesi"),
       item("HCT-OTK-002", "Kompakt Ot Çevirme Makinesi"),
@@ -165,8 +165,8 @@ export const catalog: readonly CatalogCategory[] = [
   {
     code: "OTR",
     slug: "otr",
-    name: "Döner ot tırmıkları",
-    group: "Ot hasadı",
+    name: "Döner Ot Tırmıkları",
+    group: "Ot Hasadı",
     products: [
       item("HCT-OTR-001", "Kompakt Tek Rotorlu Ot Tırmığı"),
       item("HCT-OTR-002", "Profesyonel Tek Rotorlu Ot Tırmığı"),
@@ -180,8 +180,8 @@ export const catalog: readonly CatalogCategory[] = [
   {
     code: "YTR",
     slug: "ytr",
-    name: "Yıldız ve taraklı ot tırmıkları",
-    group: "Ot hasadı",
+    name: "Yıldız Ve Taraklı Ot Tırmıkları",
+    group: "Ot Hasadı",
     products: [
       item("HCT-YTR-001", "Taraklı Ot Toplama Makinesi"),
       item("HCT-YTR-002", "Sıralı Ot Toplama Makinesi – Kompakt"),
@@ -198,8 +198,8 @@ export const catalog: readonly CatalogCategory[] = [
   {
     code: "BAL",
     slug: "bal",
-    name: "Balya makineleri",
-    group: "Ot hasadı",
+    name: "Balya Makineleri",
+    group: "Ot Hasadı",
     products: [
       item("HCT-BAL-001", "Kompakt Kare Balya Makinesi"),
       item("HCT-BAL-002", "Profesyonel Kare Balya Makinesi"),
@@ -209,8 +209,8 @@ export const catalog: readonly CatalogCategory[] = [
   {
     code: "SAR",
     slug: "sar",
-    name: "Balya sarma makineleri",
-    group: "Ot hasadı",
+    name: "Balya Sarma Makineleri",
+    group: "Ot Hasadı",
     products: [
       item("HCT-SAR-001", "Kompakt Asılır Balya Sarma Makinesi"),
       item("HCT-SAR-002", "Profesyonel Asılır Balya Sarma Makinesi"),
@@ -220,15 +220,15 @@ export const catalog: readonly CatalogCategory[] = [
   {
     code: "SIL",
     slug: "sil",
-    name: "Silaj makineleri",
-    group: "Ot hasadı",
-    products: [item("HCT-SIL-001", "Profesyonel Yem Bitkisi Biçme ve Parçalama Makinesi")],
+    name: "Silaj Makineleri",
+    group: "Ot Hasadı",
+    products: [item("HCT-SIL-001", "Profesyonel Yem Bitkisi Biçme Ve Parçalama Makinesi")],
   },
   {
     code: "KAZ",
     slug: "kaz",
-    name: "Traktör arka kazıcıları",
-    group: "Traktör ekipmanları",
+    name: "Traktör Arka Kazıcıları",
+    group: "Traktör Ekipmanları",
     products: [
       item("HCT-KAZ-001", "Kompakt Traktör Arkası Kazıcı"),
       item("HCT-KAZ-002", "Profesyonel Traktör Arkası Kazıcı"),
@@ -237,8 +237,8 @@ export const catalog: readonly CatalogCategory[] = [
   {
     code: "YUK",
     slug: "yuk",
-    name: "Traktör ön yükleyicileri",
-    group: "Traktör ekipmanları",
+    name: "Traktör Ön Yükleyicileri",
+    group: "Traktör Ekipmanları",
     products: [
       item("HCT-YUK-001", "Kompakt Traktör Ön Yükleyici"),
       item("HCT-YUK-002", "Profesyonel Traktör Ön Yükleyici"),
@@ -247,7 +247,7 @@ export const catalog: readonly CatalogCategory[] = [
   },
 ];
 
-export const catalogGroups = ["Ekim ve bakım", "Toprak işleme", "Ot hasadı", "Traktör ekipmanları"] as const;
+export const catalogGroups = ["Ekim Ve Bakım", "Toprak İşleme", "Ot Hasadı", "Traktör Ekipmanları"] as const;
 
 export function categoriesIn(group: string) {
   return catalog.filter((category) => category.group === group);

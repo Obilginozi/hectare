@@ -46,7 +46,7 @@ export const heavyEquipmentCategories = [
     } satisfies Localized,
     tagline: {
       tr: "Zorlu Projeler İçin Güçlü Performans",
-      en: "Powerful Performance for Demanding Projects",
+      en: "Powerful Performance For Demanding Projects",
     } satisfies Localized,
     intro: {
       tr: [
@@ -62,18 +62,18 @@ export const heavyEquipmentCategories = [
     },
     applications: {
       tr: [
-        "Toprak işleme ve kazı",
-        "Yol ve altyapı inşaatı",
-        "Taş ocağı ve madencilik",
-        "Yıkım ve saha hazırlığı",
-        "Altyapı ve drenaj çalışmaları",
+        "Toprak İşleme Ve Kazı",
+        "Yol Ve Altyapı İnşaatı",
+        "Taş Ocağı Ve Madencilik",
+        "Yıkım Ve Saha Hazırlığı",
+        "Altyapı Ve Drenaj Çalışmaları",
       ],
       en: [
-        "Earthmoving and excavation",
-        "Road and infrastructure construction",
-        "Quarrying and mining",
-        "Demolition and site preparation",
-        "Utility and drainage works",
+        "Earthmoving And Excavation",
+        "Road And Infrastructure Construction",
+        "Quarrying And Mining",
+        "Demolition And Site Preparation",
+        "Utility And Drainage Works",
       ],
     },
     cta: {
@@ -118,18 +118,18 @@ export const heavyEquipmentCategories = [
     },
     applications: {
       tr: [
-        "Kazı ve hendek açma",
-        "Malzeme yükleme ve taşıma",
-        "Yol inşaatı ve bakımı",
-        "Peyzaj ve altyapı çalışmaları",
-        "Belediye ve altyapı projeleri",
+        "Kazı Ve Hendek Açma",
+        "Malzeme Yükleme Ve Taşıma",
+        "Yol İnşaatı Ve Bakımı",
+        "Peyzaj Ve Altyapı Çalışmaları",
+        "Belediye Ve Altyapı Projeleri",
       ],
       en: [
-        "Excavation and trenching",
-        "Material loading and handling",
-        "Road construction and maintenance",
-        "Landscaping and utility works",
-        "Municipal and infrastructure projects",
+        "Excavation And Trenching",
+        "Material Loading And Handling",
+        "Road Construction And Maintenance",
+        "Landscaping And Utility Works",
+        "Municipal And Infrastructure Projects",
       ],
     },
     cta: {
@@ -174,20 +174,20 @@ export const heavyEquipmentCategories = [
     },
     applications: {
       tr: [
-        "Peyzaj ve bahçecilik",
-        "Konut inşaatı",
-        "Hendek açma ve altyapı kurulumu",
-        "Kapalı ve dar alan çalışmaları",
-        "Küçük ölçekli yıkım",
-        "Tarımsal uygulamalar",
+        "Peyzaj Ve Bahçecilik",
+        "Konut İnşaatı",
+        "Hendek Açma Ve Altyapı Kurulumu",
+        "Kapalı Ve Dar Alan Çalışmaları",
+        "Küçük Ölçekli Yıkım",
+        "Tarımsal Uygulamalar",
       ],
       en: [
-        "Landscaping and gardening",
-        "Residential construction",
-        "Trenching and utility installation",
-        "Indoor and confined-space work",
-        "Small-scale demolition",
-        "Agricultural applications",
+        "Landscaping And Gardening",
+        "Residential Construction",
+        "Trenching And Utility Installation",
+        "Indoor And Confined-Space Work",
+        "Small-Scale Demolition",
+        "Agricultural Applications",
       ],
     },
     cta: {
@@ -215,8 +215,8 @@ export const heavyEquipmentCategories = [
       en: "Wheel Loaders for Sale",
     } satisfies Localized,
     tagline: {
-      tr: "Verimlilik ve Ağır Hizmet Operasyonları İçin Tasarlandı",
-      en: "Built for Productivity and Heavy-Duty Operations",
+      tr: "Verimlilik Ve Ağır Hizmet Operasyonları İçin Tasarlandı",
+      en: "Built For Productivity And Heavy-Duty Operations",
     } satisfies Localized,
     intro: {
       tr: [
@@ -232,18 +232,18 @@ export const heavyEquipmentCategories = [
     },
     applications: {
       tr: [
-        "Toplu malzeme yükleme ve taşıma",
-        "Taş ocağı ve madencilik operasyonları",
-        "Şantiye malzeme taşıma",
-        "Agrega ve stok yönetimi",
-        "Tarımsal ve endüstriyel operasyonlar",
+        "Toplu Malzeme Yükleme Ve Taşıma",
+        "Taş Ocağı Ve Madencilik Operasyonları",
+        "Şantiye Malzeme Taşıma",
+        "Agrega Ve Stok Yönetimi",
+        "Tarımsal Ve Endüstriyel Operasyonlar",
       ],
       en: [
-        "Loading and transporting bulk materials",
-        "Quarry and mining operations",
-        "Construction site material handling",
-        "Aggregate and stockpile management",
-        "Agricultural and industrial operations",
+        "Loading And Transporting Bulk Materials",
+        "Quarry And Mining Operations",
+        "Construction Site Material Handling",
+        "Aggregate And Stockpile Management",
+        "Agricultural And Industrial Operations",
       ],
     },
     cta: {
@@ -272,7 +272,7 @@ export const heavyEquipmentCategories = [
     } satisfies Localized,
     tagline: {
       tr: "Her Sektör İçin Verimli Malzeme Taşıma",
-      en: "Efficient Material Handling for Every Industry",
+      en: "Efficient Material Handling For Every Industry",
     } satisfies Localized,
     intro: {
       tr: [
@@ -288,18 +288,18 @@ export const heavyEquipmentCategories = [
     },
     applications: {
       tr: [
-        "Depolama ve dağıtım",
-        "Üretim ve endüstriyel tesisler",
-        "Lojistik ve yük operasyonları",
-        "İnşaat ve yapı malzemeleri",
-        "Liman ve kargo elleçleme",
+        "Depolama Ve Dağıtım",
+        "Üretim Ve Endüstriyel Tesisler",
+        "Lojistik Ve Yük Operasyonları",
+        "İnşaat Ve Yapı Malzemeleri",
+        "Liman Ve Kargo Elleçleme",
       ],
       en: [
-        "Warehousing and distribution",
-        "Manufacturing and industrial facilities",
-        "Logistics and freight operations",
-        "Construction and building materials",
-        "Port and cargo handling",
+        "Warehousing And Distribution",
+        "Manufacturing And Industrial Facilities",
+        "Logistics And Freight Operations",
+        "Construction And Building Materials",
+        "Port And Cargo Handling",
       ],
     },
     cta: {
@@ -317,12 +317,12 @@ export const heavyEquipmentExport = {
   slug: "ihracat" as const,
   image: "/media/heavy/ihracat.jpg",
   title: {
-    tr: "Makine İhracatı ve Dünya Çapında Sevkiyat",
+    tr: "Makine İhracatı Ve Dünya Çapında Sevkiyat",
     en: "Machinery Export & Worldwide Shipping",
   } satisfies Localized,
   tagline: {
     tr: "Türkiye’den Hedefinize",
-    en: "From Türkiye to Your Destination",
+    en: "From Türkiye To Your Destination",
   } satisfies Localized,
   intro: {
     tr: [
@@ -357,7 +357,7 @@ export const heavyEquipmentExport = {
     },
     {
       n: "03",
-      title: { tr: "Teklif ve Onay", en: "Quotation & Confirmation" },
+      title: { tr: "Teklif Ve Onay", en: "Quotation & Confirmation" },
       text: {
         tr: "Mevcut ekipman detaylarını, fiyatlandırmayı ve ilgili ticari bilgileri sağlıyoruz.",
         en: "We provide available equipment details, pricing and relevant commercial information.",
@@ -396,7 +396,7 @@ export const heavyEquipmentExport = {
   },
   ctaTitle: {
     tr: "Türkiye’den Makine İthal Etmek mi İstiyorsunuz?",
-    en: "Looking to Import Machinery from Türkiye?",
+    en: "Looking To Import Machinery From Türkiye?",
   } satisfies Localized,
   ctaText: {
     tr: "Hedef ülkeniz, ekipman gereksinimleriniz ve sevkiyat seçeneklerinizi görüşmek için ihracat ekibimizle iletişime geçin.",
@@ -428,7 +428,7 @@ export const heavyEquipmentPage = {
   secondaryCta: { tr: "Teklif İsteyin", en: "Request a Quote" },
   partnerTitle: {
     tr: "Ağır İş Makineleri Ticaretinde Güvenilir Ortağınız",
-    en: "Your Trusted Partner in Heavy Equipment Trading",
+    en: "Your Trusted Partner In Heavy Equipment Trading",
   },
   partnerText: {
     tr: "Doğru makineyi bulmak basit olmalıdır. İnşaat şirketleri, müteahhitler, bayiler ve ekipman alıcılarına; operasyonel gereksinimlerine ve bütçelerine uygun güvenilir makineler tedarik etmelerinde yardımcı oluyoruz.",
@@ -436,18 +436,18 @@ export const heavyEquipmentPage = {
   },
   partnerPoints: {
     tr: [
-      "Geniş inşaat makinesi yelpazesi",
-      "Rekabetçi uluslararası fiyatlandırma",
-      "Dünya çapında ihracat ve lojistik koordinasyonu",
-      "Profesyonel satış desteği",
-      "Esnek tedarik çözümleri",
+      "Geniş İnşaat Makinesi Yelpazesi",
+      "Rekabetçi Uluslararası Fiyatlandırma",
+      "Dünya Çapında İhracat Ve Lojistik Koordinasyonu",
+      "Profesyonel Satış Desteği",
+      "Esnek Tedarik Çözümleri",
     ],
     en: [
-      "Wide range of construction machinery",
-      "Competitive international pricing",
-      "Worldwide export and logistics coordination",
-      "Professional sales support",
-      "Flexible sourcing solutions",
+      "Wide Range Of Construction Machinery",
+      "Competitive International Pricing",
+      "Worldwide Export And Logistics Coordination",
+      "Professional Sales Support",
+      "Flexible Sourcing Solutions",
     ],
   },
   machineryTitle: { tr: "Makinelerimiz", en: "Our Machinery" },
@@ -464,7 +464,7 @@ export const heavyEquipmentPage = {
     en: "Based in Türkiye, we provide international buyers with access to a diverse range of construction machinery. We coordinate the sourcing, sales and export process to help our customers purchase equipment with confidence.",
   },
   bridgeCta: {
-    tr: "İhracat ve Sevkiyat",
+    tr: "İhracat Ve Sevkiyat",
     en: "Export & Shipping",
   },
   closeTitle: {

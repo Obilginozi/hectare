@@ -75,7 +75,7 @@ export function HeavyEquipmentCategory({ slug }: { slug: string }) {
       <section className="section section-dark">
         <div className="wrap">
           <div className="section-head">
-            <h2>{lang === "en" ? "More machinery" : "Diğer makineler"}</h2>
+            <h2>{lang === "en" ? "More Machinery" : "Diğer Makineler"}</h2>
           </div>
           <ul className="he-related he-related-cards">
             {heavyEquipmentCategories
@@ -105,7 +105,7 @@ export function HeavyEquipmentCategory({ slug }: { slug: string }) {
                     sizes="200px"
                   />
                 </span>
-                <span>{lang === "en" ? "Export & Shipping" : "İhracat ve Sevkiyat"}</span>
+                <span>{lang === "en" ? "Export & Shipping" : "İhracat Ve Sevkiyat"}</span>
               </Link>
             </li>
           </ul>

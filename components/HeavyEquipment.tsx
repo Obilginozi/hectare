@@ -72,7 +72,7 @@ export function HeavyEquipment() {
                   <span className="he-machine-card-body">
                     <h3>{item.title[lang]}</h3>
                     <p>{item.card[lang]}</p>
-                    <span>{lang === "en" ? "View details" : "Detayları gör"}</span>
+                    <span>{lang === "en" ? "View Details" : "Detayları Gör"}</span>
                   </span>
                 </Link>
               </li>

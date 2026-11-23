@@ -56,13 +56,13 @@ const layers = [
   },
   {
     n: "02",
-    tr: { title: "Otomatik dümenleme", text: "Paralel geçişleri düzenler, bindirmeyi azaltır, yakıt ve süreye etki eder." },
-    en: { title: "Auto steering", text: "Organises parallel passes, reduces overlap and affects fuel and time." },
+    tr: { title: "Otomatik Dümenleme", text: "Paralel geçişleri düzenler, bindirmeyi azaltır, yakıt ve süreye etki eder." },
+    en: { title: "Auto Steering", text: "Organises parallel passes, reduces overlap and affects fuel and time." },
   },
   {
     n: "03",
-    tr: { title: "Bölüm ve oran kontrolü", text: "Üst üste ekimi engeller; girdiyi ihtiyaca göre uygular." },
-    en: { title: "Section and rate control", text: "Prevents double application and applies inputs by need." },
+    tr: { title: "Bölüm Ve Oran Kontrolü", text: "Üst üste ekimi engeller; girdiyi ihtiyaca göre uygular." },
+    en: { title: "Section And Rate Control", text: "Prevents double application and applies inputs by need." },
   },
 ] as const;
 
@@ -79,7 +79,7 @@ export function SmartAgricultureEmbed({
   return (
     <div className="smart-embed">
       <div className="section-head">
-        <h2>{tr ? "Akıllı tarım" : "Smart farming"}</h2>
+        <h2>{tr ? "Akıllı Tarım" : "Smart Farming"}</h2>
         <p className="lede">
           {tr
             ? "Konum, kontrol ve veriyi aynı düzlemde yöneten sistemler. Hectare olarak bu teknolojileri dağınık ürünler gibi değil, birbirini besleyen bir kontrol zinciri olarak ele alıyoruz."
@@ -133,7 +133,7 @@ export function SmartAgricultureEmbed({
       {compact ? (
         <div style={{ marginTop: "1.5rem" }}>
           <Link className="btn btn-dark" href="/urunler/akt">
-            {tr ? "Akıllı tarım modelleri" : "Smart farming models"}
+            {tr ? "Akıllı Tarım Modelleri" : "Smart Farming Models"}
           </Link>
         </div>
       ) : null}

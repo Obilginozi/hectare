@@ -109,7 +109,7 @@ export function Navigation() {
                     </div>
                     <div className="mega-foot">
                       <Link href="/urunler" onClick={() => setMegaOpen(false)}>
-                        {lang === "en" ? "Full catalogue" : "Tüm katalog"}
+                        {lang === "en" ? "Full Catalogue" : "Tüm Katalog"}
                       </Link>
                       <span>
                         {catalogCount} {lang === "en" ? "products" : "ürün"}
