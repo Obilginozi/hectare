@@ -82,7 +82,9 @@ export function BottomBar() {
           </nav>
         </div>
 
-        <p className="footer-copy">© {company.name} · Hectare Foreign Trade</p>
+        <p className="footer-copy" lang="en">
+          © {company.name} · Hectare Foreign Trade
+        </p>
       </div>
     </footer>
   );
