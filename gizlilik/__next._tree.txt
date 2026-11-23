@@ -11,4 +11,4 @@
 :HL["/hectare/_next/static/media/f88683b112f86fce-s.p.2omtmoo94goav.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"gizlilik","h":96,"c":"$Q2"}]]
-0:{"b":"NUsmm5D17oqm6pVsRJZCS","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"I8EFfqnG1tMZWfVnpNHrK","t":{"t":{"s":"","h":80,"c":"$Q1"}}}

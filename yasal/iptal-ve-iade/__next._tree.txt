@@ -12,4 +12,4 @@
 3:[["children",{"s":"__PAGE__","h":160}]]
 2:[["children",{"s":{"n":"slug","t":"d","k":"iptal-ve-iade","s":[]},"h":96,"c":"$Q3"}]]
 1:[["children",{"s":"yasal","h":96,"c":"$Q2"}]]
-0:{"b":"NUsmm5D17oqm6pVsRJZCS","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"I8EFfqnG1tMZWfVnpNHrK","t":{"t":{"s":"","h":80,"c":"$Q1"}}}

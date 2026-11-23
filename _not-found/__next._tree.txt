@@ -1,4 +1,4 @@
 :HL["/hectare/_next/static/chunks/0a7g1y1sprwjo.css","style"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"/_not-found","h":96,"c":"$Q2"}]]
-0:{"b":"NUsmm5D17oqm6pVsRJZCS","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"I8EFfqnG1tMZWfVnpNHrK","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
