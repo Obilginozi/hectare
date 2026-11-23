@@ -2,69 +2,52 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { PageFilm } from "@/components/PageFilm";
+import { ScrollFilm } from "@/components/ScrollFilm";
 import { useLocale } from "@/components/Locale";
-import { company } from "@/lib/content";
 import {
   heavyEquipmentCategories,
   heavyEquipmentExport,
-  heavyEquipmentHero,
   heavyEquipmentPage as copy,
+  heavyEquipmentScrollFilm,
 } from "@/lib/heavy-equipment";
 import { withBase } from "@/lib/paths";
 
 export function HeavyEquipment() {
   const { lang } = useLocale();
-  const quoteSubject = encodeURIComponent(
-    lang === "en" ? "Hectare: Heavy Equipment Quote" : "Hectare: İş Makinesi Teklifi",
-  );
-  const quoteBody = encodeURIComponent(
-    lang === "en"
-      ? "I would like a quotation for construction machinery."
-      : "İnşaat makineleri için teklif almak istiyorum.",
-  );
-  const mailto = `mailto:${company.email}?subject=${quoteSubject}&body=${quoteBody}`;
 
   return (
     <>
-      <section className="page-hero">
-        <PageFilm src={heavyEquipmentHero.video} poster={heavyEquipmentHero.poster} />
-        <div className="page-hero-copy">
+      <ScrollFilm
+        className="scroll-film--he"
+        frames={heavyEquipmentScrollFilm.frames}
+        poster={heavyEquipmentScrollFilm.poster}
+        label={lang === "en" ? "Scroll to play crane footage" : "Kaydırarak vinç görüntüsünü oynatın"}
+        hint={lang === "en" ? "Scroll down" : "Aşağı kaydır"}
+      >
+        <div className="scroll-film-he-title">
           <p className="eyebrow">{copy.eyebrow[lang]}</p>
           <h1>{copy.hero[lang]}</h1>
-          <p className="page-hero-lede">{copy.intro[lang][0]}</p>
-          <div className="he-hero-actions">
-            <a className="btn btn-primary" href="#makineler">
-              {copy.primaryCta[lang]}
-            </a>
-            <a className="btn btn-ghost" href={mailto}>
-              {copy.secondaryCta[lang]}
-            </a>
-          </div>
         </div>
-      </section>
-
-      <section className="section">
-        <div className="wrap">
-          <div className="split-copy">
-            {copy.intro[lang].map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-        </div>
-      </section>
+        <p className="page-hero-lede">{copy.intro[lang][0]}</p>
+      </ScrollFilm>
 
       <section className="section section-muted">
         <div className="wrap he-partner">
           <div className="section-head">
             <h2>{copy.partnerTitle[lang]}</h2>
-            <p className="lede">{copy.partnerText[lang]}</p>
           </div>
-          <ul className="he-checklist">
-            {copy.partnerPoints[lang].map((point) => (
-              <li key={point}>{point}</li>
-            ))}
-          </ul>
+          <div className="he-partner-grid">
+            <div className="he-partner-copy">
+              {copy.intro[lang].map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+            <ul className="he-checklist">
+              {copy.partnerPoints[lang].map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -119,7 +102,6 @@ export function HeavyEquipment() {
           </div>
         </div>
       </section>
-
     </>
   );
 }

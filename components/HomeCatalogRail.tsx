@@ -22,7 +22,9 @@ export function HomeCatalogRail({
   const scrollerRef = useRef<HTMLUListElement>(null);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(false);
-  const scrollable = categories.length > 4;
+  const [mobileRail, setMobileRail] = useState(false);
+  // Desktop: only long groups. Mobile: every group with 2+ cards scrolls.
+  const scrollable = mobileRail ? categories.length > 1 : categories.length > 4;
 
   const syncButtons = () => {
     const node = scrollerRef.current;
@@ -31,6 +33,14 @@ export function HomeCatalogRail({
     setCanPrev(node.scrollLeft > 4);
     setCanNext(node.scrollLeft < max - 4);
   };
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 900px)");
+    const syncMobile = () => setMobileRail(media.matches);
+    syncMobile();
+    media.addEventListener("change", syncMobile);
+    return () => media.removeEventListener("change", syncMobile);
+  }, []);
 
   useEffect(() => {
     const node = scrollerRef.current;
@@ -43,7 +53,7 @@ export function HomeCatalogRail({
       node.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", syncButtons);
     };
-  }, [categories.length]);
+  }, [categories.length, scrollable]);
 
   const scrollByPage = (direction: -1 | 1) => {
     const node = scrollerRef.current;

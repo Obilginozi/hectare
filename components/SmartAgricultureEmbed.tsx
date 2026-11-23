@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useLocale } from "@/components/Locale";
-import { company } from "@/lib/content";
 import { productPhoto } from "@/lib/product-photos";
 import { withBase } from "@/lib/paths";
 
@@ -74,7 +73,7 @@ export function SmartAgricultureEmbed({
   compact?: boolean;
   showProducts?: boolean;
 }) {
-  const { lang, t } = useLocale();
+  const { lang } = useLocale();
   const tr = lang === "tr";
 
   return (
@@ -106,8 +105,6 @@ export function SmartAgricultureEmbed({
           {products.map((product, index) => {
             const copy = product[lang];
             const photo = productPhoto(product.code);
-            const subject = encodeURIComponent(`Hectare: ${product.code} ${copy.name}`);
-            const body = encodeURIComponent(t.quoteBody(copy.name, product.code));
             return (
               <li key={product.code} className={index % 2 ? "smart-product is-flip" : "smart-product"}>
                 <div className="smart-product-media">
@@ -126,11 +123,6 @@ export function SmartAgricultureEmbed({
                       <li key={feature}>{feature}</li>
                     ))}
                   </ul>
-                  <div style={{ marginTop: "1.1rem" }}>
-                    <a className="btn btn-dark" href={`mailto:${company.email}?subject=${subject}&body=${body}`}>
-                      {t.quote}
-                    </a>
-                  </div>
                 </div>
               </li>
             );

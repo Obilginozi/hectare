@@ -23,8 +23,20 @@ export const company = {
 export const description =
   "Hectare AŞ olarak otuz yıldan uzun süredir tarım makineleri ve iş makineleri tedarik ediyoruz. On yıldan uzun süredir tecrübemiz ve kadromuzla uluslararası ticaret yürütüyoruz.";
 
+export const homeScrollFilm = {
+  poster: "/media/home-frames/frame-001.jpg",
+  frames: {
+    dir: "/media/home-frames",
+    prefix: "frame-",
+    ext: ".jpg",
+    count: 200,
+    pad: 3,
+  },
+} as const;
+
 /** Primary header navigation */
 export const navLinks = [
+  { href: "/", label: "Ana Sayfa" },
   { href: "/urunler", label: "Ürünler" },
   { href: "/is-makineleri", label: "İş Makineleri" },
   { href: "/kurumsal", label: "Kurumsal" },

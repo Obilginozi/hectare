@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { Barlow_Condensed, IBM_Plex_Sans } from "next/font/google";
+import { Barlow_Condensed, IBM_Plex_Sans, Oswald } from "next/font/google";
 import { BottomBar } from "@/components/BottomBar";
 import { LocaleProvider, SkipLink } from "@/components/Locale";
 import { Navigation } from "@/components/Navigation";
@@ -14,6 +14,13 @@ const display = Barlow_Condensed({
   weight: ["500", "600", "700"],
   display: "swap",
   variable: "--font-display-face",
+});
+
+const hero = Oswald({
+  subsets: ["latin", "latin-ext"],
+  weight: ["500", "600", "700"],
+  display: "swap",
+  variable: "--font-hero-face",
 });
 
 const body = IBM_Plex_Sans({
@@ -77,7 +84,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="tr" className={`${display.variable} ${body.variable}`}>
+    <html lang="tr" className={`${display.variable} ${hero.variable} ${body.variable}`}>
       <body>
         <LocaleProvider>
           <SkipLink />

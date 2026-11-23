@@ -11,36 +11,11 @@ export function Contact() {
     company.addressLines[1],
     lang === "en" ? `${company.locality} / Istanbul` : company.addressLines[2],
   ];
-  const quoteText = encodeURIComponent(
-    lang === "en" ? "Hello, I would like a quotation." : "Merhaba, teklif almak istiyorum.",
-  );
-
   return (
     <>
       <section className="page-intro">
         <div className="wrap">
           <h1>{lang === "en" ? "Contact" : "İletişim"}</h1>
-          <p>
-            {lang === "en"
-              ? "Call, email or WhatsApp — we respond on stock, supply and pricing."
-              : "Telefon, e-posta veya WhatsApp — stok, tedarik ve fiyat için dönüş yapıyoruz."}
-          </p>
-          <div className="hero-actions" style={{ marginTop: "1.35rem" }}>
-            <a className="btn btn-primary" href={`tel:${company.phoneTel}`}>
-              {company.phoneDisplay}
-            </a>
-            <a
-              className="btn btn-ghost"
-              href={`${company.whatsapp}?text=${quoteText}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              WhatsApp
-            </a>
-            <a className="btn btn-ghost" href={`mailto:${company.email}`}>
-              {company.email}
-            </a>
-          </div>
         </div>
       </section>
 

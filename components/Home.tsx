@@ -3,10 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { HomeCatalogRail } from "@/components/HomeCatalogRail";
-import { PageFilm } from "@/components/PageFilm";
+import { LaneVideo } from "@/components/LaneVideo";
+import { ScrollFilm } from "@/components/ScrollFilm";
 import { useLocale } from "@/components/Locale";
 import { catalogGroups, categoriesIn } from "@/lib/catalog";
-import { company, trade } from "@/lib/content";
+import { homeScrollFilm, trade } from "@/lib/content";
 import {
   heavyEquipmentCategories,
   heavyEquipmentExport,
@@ -29,32 +30,23 @@ const homeGroups = [...catalogGroups]
 export function Home() {
   const { lang, t } = useLocale();
   const tr = lang === "tr";
-  const quoteHref = `${company.whatsapp}?text=${encodeURIComponent(
-    tr ? "Merhaba, teklif almak istiyorum." : "Hello, I would like a quotation.",
-  )}`;
 
   return (
     <main>
-      <section className="hero" aria-label={tr ? "Tanıtım" : "Introduction"}>
-        <PageFilm src="/media/unver-hero.mp4" poster="/media/unver-hero-poster.jpg" className="hero-media" />
-        <div className="hero-copy">
-          <p className="hero-brand">Hectare</p>
-          <h1>{tr ? "Tedarikte yönü biz belirliyoruz." : "We set the direction of supply."}</h1>
-          <p className="hero-lede">
-            {tr
-              ? "Tarım makineleri ve iş makinelerinde otuz yılı aşkın tedarik, uluslararası ticaret ve distribütörlük."
-              : "Agricultural and construction machinery — wholesale supply, international trade and distributorships with more than thirty years of experience."}
-          </p>
-          <div className="hero-actions">
-            <Link className="btn btn-primary" href="/urunler">
-              {t.productsLink}
-            </Link>
-            <Link className="btn btn-ghost" href="/is-makineleri">
-              {navName(lang, "/is-makineleri", "İş Makineleri")}
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ScrollFilm
+        className="scroll-film--home"
+        frames={homeScrollFilm.frames}
+        poster={homeScrollFilm.poster}
+        label={tr ? "Tanıtım" : "Introduction"}
+        hint={tr ? "Aşağı kaydır" : "Scroll down"}
+      >
+        <h1>{tr ? "Tedarikte yönü belirliyoruz." : "We set the direction of supply."}</h1>
+        <p className="hero-lede">
+          {tr
+            ? "Tarım makineleri ve iş makinelerinde otuz yılı aşkın tedarik, uluslararası ticaret ve distribütörlük."
+            : "Agricultural and construction machinery — wholesale supply, international trade and distributorships with more than thirty years of experience."}
+        </p>
+      </ScrollFilm>
 
       <div id="icerik" tabIndex={-1}>
         <section className="section">
@@ -69,27 +61,17 @@ export function Home() {
             </div>
             <div className="lane-grid">
               <Link className="lane-panel" href="/urunler">
-                <Image
-                  src={withBase("/media/video4-poster.jpg")}
-                  alt=""
-                  fill
-                  sizes="(max-width: 900px) 100vw, 50vw"
-                />
+                <LaneVideo src="/media/lanes/tarim.mp4" poster="/media/video4-poster.jpg" />
                 <h3>{tr ? "Tarım ekipmanları" : "Agricultural equipment"}</h3>
                 <p>
                   {tr
-                    ? "Ekimden hasada katalog ürünleri, hızlı teklif."
-                    : "Catalogue equipment from seeding to harvest, ready to quote."}
+                    ? "Ekimden hasada katalog ürünleri."
+                    : "Catalogue equipment from seeding to harvest."}
                 </p>
                 <span>{tr ? "Kataloğa git" : "Open catalogue"}</span>
               </Link>
               <Link className="lane-panel" href="/is-makineleri">
-                <Image
-                  src={withBase("/media/heavy/hero-poster.jpg")}
-                  alt=""
-                  fill
-                  sizes="(max-width: 900px) 100vw, 50vw"
-                />
+                <LaneVideo src="/media/lanes/is-makineleri.mp4" poster="/media/heavy/hero-poster.jpg" />
                 <h3>{tr ? "İş makineleri" : "Heavy equipment"}</h3>
                 <p>
                   {tr
@@ -108,8 +90,8 @@ export function Home() {
               <h2>{tr ? "Tarım ekipmanları." : "Agricultural equipment."}</h2>
               <p className="lede">
                 {tr
-                  ? "Gruplara göre seçin, ürün koduyla teklif isteyin."
-                  : "Choose by group and request a quote with the product code."}
+                  ? "Gruplara göre seçin, modelleri ürün kodlarıyla inceleyin."
+                  : "Browse by group and review models with product codes."}
               </p>
             </div>
             {homeGroups.map(({ group, categories }) => (
@@ -154,7 +136,7 @@ export function Home() {
                 </li>
               ))}
             </ul>
-            <div style={{ marginTop: "1.5rem", display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
+            <div className="action-row">
               <Link className="btn btn-dark" href="/is-makineleri">
                 {navName(lang, "/is-makineleri", "İş Makineleri")}
               </Link>
@@ -247,22 +229,16 @@ export function Home() {
 
         <section className="close-band">
           <div className="wrap">
-            <h2>{tr ? "Teklif için yazın." : "Write us for a quote."}</h2>
+            <h2>{tr ? "İletişime geçin." : "Get in touch."}</h2>
             <p>
               {tr
-                ? "Tarım ekipmanı veya iş makinesi için telefon, e-posta ya da WhatsApp ile yazın."
-                : "Write us by phone, email or WhatsApp for agricultural equipment or heavy machinery."}
+                ? "Tarım ekipmanı veya iş makineleri hakkında sorularınız için bize ulaşın."
+                : "Reach out with questions about agricultural equipment or heavy machinery."}
             </p>
             <div className="hero-actions">
-              <a className="btn btn-primary" href={quoteHref} target="_blank" rel="noopener noreferrer">
-                WhatsApp
-              </a>
-              <a className="btn btn-ghost" href={`tel:${company.phoneTel}`}>
-                {company.phoneDisplay}
-              </a>
-              <a className="btn btn-ghost" href={`mailto:${company.email}`}>
-                {company.email}
-              </a>
+              <Link className="btn btn-primary" href="/iletisim">
+                {tr ? "İletişim" : "Contact"}
+              </Link>
             </div>
           </div>
         </section>

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { SocialLinks } from "@/components/SocialLinks";
 import { useLocale } from "@/components/Locale";
-import { company, footerLinks, navLinks } from "@/lib/content";
+import { company, footerLinks } from "@/lib/content";
 import { legalLinks } from "@/lib/legal/pages";
 import { navName } from "@/lib/i18n";
 import { withBase } from "@/lib/paths";
@@ -31,6 +31,11 @@ export function BottomBar() {
   const labelFor = (href: string, fallback: string) =>
     footerExtra[href]?.[lang] ?? navName(lang, href, fallback);
 
+  const address =
+    lang === "en"
+      ? `${company.addressLines[0]}, ${company.addressLines[1]}, ${company.locality} / Istanbul`
+      : `${company.addressLines[0]}, ${company.addressLines[1]}, ${company.addressLines[2]}`;
+
   return (
     <footer className="footer">
       <div className="wrap footer-grid">
@@ -39,7 +44,8 @@ export function BottomBar() {
           <p>{blurb}</p>
           <SocialLinks className="social-links--footer" />
         </div>
-        <div>
+
+        <div className="footer-col">
           <p className="footer-label">{t.pagesLabel}</p>
           <nav aria-label={t.footerLabel}>
             {footerLinks.map((link) => (
@@ -49,17 +55,8 @@ export function BottomBar() {
             ))}
           </nav>
         </div>
-        <div>
-          <p className="footer-label">{t.legalLabel}</p>
-          <nav aria-label={t.legalLabel}>
-            {legalLinks.map((link) => (
-              <Link key={link.href} href={link.href} aria-current={current(link.href)}>
-                {navName(lang, link.href, link.label)}
-              </Link>
-            ))}
-          </nav>
-        </div>
-        <div>
+
+        <div className="footer-col">
           <p className="footer-label">{t.contactLabel}</p>
           <ul>
             <li>
@@ -69,17 +66,22 @@ export function BottomBar() {
               <a href={`mailto:${company.email}`}>{company.email}</a>
             </li>
             <li>
-              {company.addressLines[0]}
-              <br />
-              {company.addressLines[1]}
-              <br />
-              {lang === "en" ? `${company.locality} / Istanbul` : company.addressLines[2]}
-            </li>
-            <li>
-              <Link href={navLinks[0].href}>{navName(lang, "/urunler", "Ürünler")}</Link>
+              <address className="footer-address">{address}</address>
             </li>
           </ul>
         </div>
+
+        <div className="footer-col footer-col-legal">
+          <p className="footer-label">{t.legalLabel}</p>
+          <nav aria-label={t.legalLabel}>
+            {legalLinks.map((link) => (
+              <Link key={link.href} href={link.href} aria-current={current(link.href)}>
+                {navName(lang, link.href, link.label)}
+              </Link>
+            ))}
+          </nav>
+        </div>
+
         <p className="footer-copy">© {company.name} · Hectare Foreign Trade</p>
       </div>
     </footer>

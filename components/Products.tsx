@@ -34,8 +34,8 @@ export function Products() {
           <h1>{tr ? "Sahaya hazır makineler" : "Field-ready machinery"}</h1>
           <p>
             {tr
-              ? "Ekimden hasada doğru ekipmanı seçin; ürün koduyla teklif isteyin."
-              : "Choose the right equipment from seeding to harvest; request a quote with the product code."}
+              ? "Ekimden hasada doğru ekipmanı seçin; modelleri ürün kodlarıyla inceleyin."
+              : "Choose the right equipment from seeding to harvest; browse models with product codes."}
           </p>
           <div className="page-intro-meta">
             <span>
@@ -44,7 +44,6 @@ export function Products() {
             <span>
               {catalog.length} {tr ? "kategori" : "categories"}
             </span>
-            <span>{tr ? "Aynı gün teklif hedefi" : "Same-day quote target"}</span>
           </div>
         </div>
       </section>
@@ -56,8 +55,8 @@ export function Products() {
               <h2 className="block-title">{tr ? "İhtiyacınıza göre seçin" : "Choose by your operation"}</h2>
               <p className="lede">
                 {tr
-                  ? "Gruplara göre filtreleyin, kategoriyi açın, ürün koduyla teklif isteyin."
-                  : "Filter by group, open a category, and request a quote with the product code."}
+                  ? "Gruplara göre filtreleyin, kategoriyi açın, modelleri inceleyin."
+                  : "Filter by group, open a category, and review the models."}
               </p>
             </div>
             <div className="products-filter" role="tablist" aria-label={tr ? "Ürün grupları" : "Product groups"}>
@@ -131,7 +130,6 @@ export function Products() {
                               </span>
                               <span className="tile-cta-row">
                                 <span className="tile-more">{tr ? "Modelleri gör" : "See models"}</span>
-                                <span className="tile-quote">{t.quote}</span>
                               </span>
                             </span>
                           </Link>
@@ -156,7 +154,7 @@ export function Products() {
         <div className="wrap">
           <div className="section-head">
             <h2 className="block-title">
-              {tr ? "Tekliften teslimata üç adım" : "Three steps from quote to delivery"}
+              {tr ? "Katalogdan tedarike üç adım" : "Three steps from catalogue to supply"}
             </h2>
           </div>
           <ol className="products-steps">
@@ -171,11 +169,11 @@ export function Products() {
             </li>
             <li>
               <strong>02</strong>
-              <h3>{tr ? "Teklif isteyin" : "Request a quote"}</h3>
+              <h3>{tr ? "İletişime geçin" : "Get in touch"}</h3>
               <p>
                 {tr
-                  ? "Kod ve modelle e-posta veya WhatsApp üzerinden hızlıca yazın."
-                  : "Write us by email or WhatsApp with the code and model you need."}
+                  ? "İlgilendiğiniz kod ve modeli bizimle paylaşın."
+                  : "Share the code and model you are interested in."}
               </p>
             </li>
             <li>

@@ -52,6 +52,7 @@ export const messages = {
 } as const;
 
 const nav: Record<string, Record<Lang, string>> = {
+  "/": { tr: "Ana Sayfa", en: "Home" },
   "/kurumsal": { tr: "Kurumsal", en: "Corporate" },
   "/urunler": { tr: "Ürünler", en: "Products" },
   "/is-makineleri": { tr: "İş Makineleri", en: "Heavy Equipment" },

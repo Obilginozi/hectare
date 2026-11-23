@@ -17,6 +17,17 @@ export const heavyEquipmentHero = {
   poster: "/media/heavy/hero-poster.jpg",
 } as const;
 
+export const heavyEquipmentScrollFilm = {
+  poster: "/media/heavy/crane-frames/frame-001.jpg",
+  frames: {
+    dir: "/media/heavy/crane-frames",
+    prefix: "frame-",
+    ext: ".jpg",
+    count: 148,
+    pad: 3,
+  },
+} as const;
+
 export const heavyEquipmentCategories = [
   {
     slug: "ekskavatorler" as const,

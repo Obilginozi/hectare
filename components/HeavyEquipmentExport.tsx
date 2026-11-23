@@ -44,17 +44,21 @@ export function HeavyEquipmentExport() {
         </div>
       </section>
 
-      <section className="section section-muted">
+      <section className="section section-muted he-process-section">
         <div className="wrap">
-          <div className="section-head">
+          <div className="section-head section-head-tight">
             <h2>{copy.processTitle[lang]}</h2>
           </div>
           <ol className="he-process">
             {copy.steps.map((step) => (
               <li key={step.n}>
-                <p className="tech-n">{step.n}</p>
-                <h3>{step.title[lang]}</h3>
-                <p>{step.text[lang]}</p>
+                <span className="he-process-n" aria-hidden="true">
+                  {step.n}
+                </span>
+                <div className="he-process-body">
+                  <h3>{step.title[lang]}</h3>
+                  <p>{step.text[lang]}</p>
+                </div>
               </li>
             ))}
           </ol>

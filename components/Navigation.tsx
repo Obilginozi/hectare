@@ -53,55 +53,132 @@ export function Navigation() {
     };
   }, []);
 
-  const quoteHref = `${company.whatsapp}?text=${encodeURIComponent(
-    lang === "en" ? "Hello, I would like a quotation." : "Merhaba, teklif almak istiyorum.",
-  )}`;
-
   return (
-    <header className="site-header">
-      <div className="nav-row">
-        <Link className="brand-lockup" href="/" onClick={() => setOpen(false)}>
-          <Image src={withBase("/media/hectare-logo.png")} alt="" width={180} height={36} priority />
-          <strong className="sr-only">{company.name}</strong>
-        </Link>
+    <>
+      <header className="site-header">
+        <div className="nav-row">
+          <Link className="brand-lockup" href="/" onClick={() => setOpen(false)}>
+            <Image src={withBase("/media/hectare-logo.png")} alt="" width={180} height={36} priority />
+            <strong className="sr-only">{company.name}</strong>
+          </Link>
 
-        <nav className="nav-links" aria-label={t.navLabel}>
-          {navLinks.map((link) =>
-            link.href === "/urunler" ? (
-              <div
-                key={link.href}
-                className={`nav-mega${megaOpen ? " is-open" : ""}`}
-                onMouseEnter={openMega}
-                onMouseLeave={scheduleCloseMega}
-              >
-                <Link
-                  href={link.href}
-                  aria-current={current(link.href)}
-                  aria-expanded={megaOpen}
-                  aria-controls={megaId}
-                  onFocus={openMega}
-                >
-                  {navName(lang, link.href, link.label)}
-                </Link>
+          <nav className="nav-links" aria-label={t.navLabel}>
+            {navLinks.map((link) =>
+              link.href === "/urunler" ? (
                 <div
-                  id={megaId}
-                  className="mega-panel"
-                  hidden={!megaOpen}
-                  role="region"
-                  aria-label={navName(lang, "/urunler", "Ürünler")}
+                  key={link.href}
+                  className={`nav-mega${megaOpen ? " is-open" : ""}`}
                   onMouseEnter={openMega}
                   onMouseLeave={scheduleCloseMega}
                 >
-                  <div className="mega-inner">
+                  <Link
+                    href={link.href}
+                    aria-current={current(link.href)}
+                    aria-expanded={megaOpen}
+                    aria-controls={megaId}
+                    onFocus={openMega}
+                  >
+                    {navName(lang, link.href, link.label)}
+                  </Link>
+                  <div
+                    id={megaId}
+                    className="mega-panel"
+                    hidden={!megaOpen}
+                    role="region"
+                    aria-label={navName(lang, "/urunler", "Ürünler")}
+                    onMouseEnter={openMega}
+                    onMouseLeave={scheduleCloseMega}
+                  >
+                    <div className="mega-inner">
+                      {catalogGroups.map((group) => (
+                        <section key={group} className="mega-group">
+                          <h3>{groupName(lang, group)}</h3>
+                          {categoriesIn(group).map((category) => (
+                            <Link
+                              key={category.slug}
+                              className="mega-category-link"
+                              href={`/urunler/${category.slug}`}
+                              onClick={() => setMegaOpen(false)}
+                            >
+                              <span>{categoryName(lang, category.slug, category.name)}</span>
+                              <em>{category.code}</em>
+                            </Link>
+                          ))}
+                        </section>
+                      ))}
+                    </div>
+                    <div className="mega-foot">
+                      <Link href="/urunler" onClick={() => setMegaOpen(false)}>
+                        {lang === "en" ? "Full catalogue" : "Tüm katalog"}
+                      </Link>
+                      <span>
+                        {catalogCount} {lang === "en" ? "products" : "ürün"}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <Link key={link.href} href={link.href} aria-current={current(link.href)}>
+                  {navName(lang, link.href, link.label)}
+                </Link>
+              ),
+            )}
+            <button
+              type="button"
+              className="lang-switch"
+              aria-label={t.language}
+              onClick={() => setLang(lang === "tr" ? "en" : "tr")}
+            >
+              {lang === "tr" ? "EN" : "TR"}
+            </button>
+          </nav>
+
+          <button
+            type="button"
+            className={`menu-toggle${open ? " is-open" : ""}`}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            aria-label={open ? t.close : t.menu}
+            onClick={() => setOpen((value) => !value)}
+          >
+            <span />
+          </button>
+        </div>
+      </header>
+
+      <div
+        id="mobile-menu"
+        className={open ? "mobile-drawer is-open" : "mobile-drawer"}
+        aria-hidden={!open}
+      >
+        <nav className="mobile-drawer-nav" aria-label={t.navLabel}>
+          {navLinks.map((link) =>
+            link.href === "/urunler" ? (
+              <div key={link.href} className={`mobile-catalog${mobileCatalog ? " is-open" : ""}`}>
+                <div className="mobile-catalog-head">
+                  <Link href={link.href} aria-current={current(link.href)} onClick={() => setOpen(false)}>
+                    {navName(lang, link.href, link.label)}
+                  </Link>
+                  <button
+                    type="button"
+                    className="mobile-catalog-toggle"
+                    aria-expanded={mobileCatalog}
+                    aria-label={lang === "en" ? "Product categories" : "Ürün kategorileri"}
+                    onClick={() => setMobileCatalog((value) => !value)}
+                  >
+                    <span>{mobileCatalog ? "−" : "+"}</span>
+                  </button>
+                </div>
+                {mobileCatalog ? (
+                  <div className="mobile-catalog-body">
                     {catalogGroups.map((group) => (
-                      <section key={group} className="mega-group">
+                      <section key={group}>
                         <h3>{groupName(lang, group)}</h3>
                         {categoriesIn(group).map((category) => (
                           <Link
                             key={category.slug}
-                            className="mega-category-link"
                             href={`/urunler/${category.slug}`}
-                            onClick={() => setMegaOpen(false)}
+                            onClick={() => setOpen(false)}
                           >
                             <span>{categoryName(lang, category.slug, category.name)}</span>
                             <em>{category.code}</em>
@@ -110,115 +187,46 @@ export function Navigation() {
                       </section>
                     ))}
                   </div>
-                  <div className="mega-foot">
-                    <Link href="/urunler" onClick={() => setMegaOpen(false)}>
-                      {lang === "en" ? "Full catalogue" : "Tüm katalog"}
-                    </Link>
-                    <a href={quoteHref} target="_blank" rel="noopener noreferrer" onClick={() => setMegaOpen(false)}>
-                      {t.quote}
-                    </a>
-                    <span>
-                      {catalogCount} {lang === "en" ? "products" : "ürün"}
-                    </span>
-                  </div>
-                </div>
+                ) : null}
               </div>
             ) : (
-              <Link key={link.href} href={link.href} aria-current={current(link.href)}>
+              <Link
+                key={link.href}
+                className="mobile-drawer-link"
+                href={link.href}
+                aria-current={current(link.href)}
+                onClick={() => setOpen(false)}
+              >
                 {navName(lang, link.href, link.label)}
               </Link>
             ),
           )}
-          <a className="nav-cta" href={quoteHref} target="_blank" rel="noopener noreferrer">
-            {t.quote}
-          </a>
+        </nav>
+        <div className="mobile-drawer-foot">
           <button
             type="button"
-            className="lang-switch"
-            aria-label={t.language}
+            className="mobile-lang"
             onClick={() => setLang(lang === "tr" ? "en" : "tr")}
+            aria-label={lang === "tr" ? "Switch to English" : "Türkçeye geç"}
           >
-            {lang === "tr" ? "EN" : "TR"}
+            {lang === "tr" ? (
+              <>
+                <span className="mobile-lang-flag" aria-hidden="true">
+                  🇬🇧
+                </span>
+                English
+              </>
+            ) : (
+              <>
+                <span className="mobile-lang-flag" aria-hidden="true">
+                  🇹🇷
+                </span>
+                Türkçe
+              </>
+            )}
           </button>
-        </nav>
-
-        <button
-          type="button"
-          className="menu-toggle"
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          aria-label={open ? t.close : t.menu}
-          onClick={() => setOpen((value) => !value)}
-        >
-          <span />
-        </button>
+        </div>
       </div>
-
-      <div
-        id="mobile-menu"
-        className={open ? "mobile-drawer is-open" : "mobile-drawer"}
-        hidden={!open}
-      >
-        {navLinks.map((link) =>
-          link.href === "/urunler" ? (
-            <div key={link.href} className="mobile-catalog">
-              <div className="mobile-catalog-head">
-                <Link href={link.href} aria-current={current(link.href)} onClick={() => setOpen(false)}>
-                  {navName(lang, link.href, link.label)}
-                </Link>
-                <button
-                  type="button"
-                  aria-expanded={mobileCatalog}
-                  aria-label={lang === "en" ? "Product categories" : "Ürün kategorileri"}
-                  onClick={() => setMobileCatalog((value) => !value)}
-                >
-                  {mobileCatalog ? "−" : "+"}
-                </button>
-              </div>
-              {mobileCatalog ? (
-                <div className="mobile-catalog-body">
-                  {catalogGroups.map((group) => (
-                    <section key={group}>
-                      <h3>{groupName(lang, group)}</h3>
-                      {categoriesIn(group).map((category) => (
-                        <Link
-                          key={category.slug}
-                          href={`/urunler/${category.slug}`}
-                          onClick={() => setOpen(false)}
-                        >
-                          {categoryName(lang, category.slug, category.name)}
-                          <em>{category.code}</em>
-                        </Link>
-                      ))}
-                    </section>
-                  ))}
-                </div>
-              ) : null}
-            </div>
-          ) : (
-            <Link
-              key={link.href}
-              href={link.href}
-              aria-current={current(link.href)}
-              onClick={() => setOpen(false)}
-            >
-              {navName(lang, link.href, link.label)}
-            </Link>
-          ),
-        )}
-        <a
-          className="nav-cta"
-          href={quoteHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => setOpen(false)}
-        >
-          {t.quote}
-        </a>
-        <button type="button" onClick={() => setLang(lang === "tr" ? "en" : "tr")}>
-          {lang === "tr" ? "English" : "Türkçe"}
-        </button>
-      </div>
-    </header>
+    </>
   );
 }
